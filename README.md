@@ -35,8 +35,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## per fer canvis
 
 1. Actualitzar master amb última versió: desde branca master `git pull`
-2. Crear una nova branca: `git branch <name>`
-3. Moure's a la nova branca: `git checkout <name>` 
+2. Crear una nova branca: `git branch <la teva branca>`
+3. Moure's a la nova branca: `git checkout <la teva branca>` 
 Per comprovar en qualsevol moment en quina branca estas, `git branch`
 4. ** fer canvis **
 5. Commitejar (aka guardar) els canvis: 
