@@ -39,11 +39,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 3. Moure's a la nova branca: `git checkout <name>` 
 Per comprovar en qualsevol moment en quina branca estas, `git branch`
 4. ** fer canvis **
-5. Commitejar els canvis: 
+5. Commitejar (aka guardar) els canvis: 
   `git add *` 
   `git commit -m <missatge>`
 ** repetir 4. i 5. tants cops com calgui mentre es va treballant **
-6. Moure's a la nova branca: `git checkout master`
+6. Un cop es vol penjar els canvis, moure's a master: `git checkout master`
 7. Actualitzar master amb última versió: `git pull`
 8. Merge la teva branca al master: desde master `git merge <la teva branca>`
 9. Penjar els canvis al repositori remot: `git push origin master`
