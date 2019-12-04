@@ -26,22 +26,28 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-## Com utilitzar git: a cutre introduction
+# Com utilitzar git: a cutre introduction by Dani
 
-# clonar repositori:
+## clonar repositori:
 
 `git clone https://github.com/Morales97/MLapp`
 
-# per fer canvis
+## per fer canvis
 
 1. Actualitzar master amb última versió: desde branca master `git pull`
 2. Crear una nova branca: `git branch <name>`
 3. Moure's a la nova branca: `git checkout <name>` 
 Per comprovar en qualsevol moment en quina branca estas, `git branch`
-
 4. ** fer canvis **
 5. Commitejar els canvis: 
   `git add *` 
-  `git commit
+  `git commit -m <missatge>`
+** repetir 4. i 5. tants cops com calgui mentre es va treballant **
+6. Moure's a la nova branca: `git checkout master`
+7. Actualitzar master amb última versió: `git pull`
+8. Merge la teva branca al master: desde master `git merge <la teva branca>`
+9. Penjar els canvis al repositori remot: `git push origin master`
+
+
  
 
