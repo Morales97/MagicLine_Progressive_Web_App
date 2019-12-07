@@ -50,12 +50,12 @@ Per comprovar en qualsevol moment en quina branca estas, `git branch`
 
 # Com passar els audits
 
-Per comprovar que la PWA funciona bé, Developer tools del chrome -> Audits
-Per passar tots els audits, cal que una versio de 'production' corri en un servidor:
-`npm install -g http-server`
-`ng build --prod`
-`cd dist/MLapp`
-`http-server`
+Per comprovar que la PWA funciona bé, Developer tools del chrome -> Audits<br />
+Per passar tots els audits, cal que una versio de 'production' corri en un servidor:<br />
+`npm install -g http-server`<br />
+`ng build --prod`<br />
+`cd dist/MLapp`<br />
+`http-server`<br />
 En canvi, per fer testing normal simplement amb `ng serve` a la carpeta del projecte val
 
  
