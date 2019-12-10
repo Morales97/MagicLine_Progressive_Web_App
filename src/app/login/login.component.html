@@ -1,5 +1,48 @@
-<p>
-  login works!
-</p>
-<p><a routerLink="/">Go to Home</a></p>
-<p><a routerLink="/admin">Go to admin</a></p>
+<div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+<h2>Log in</h2>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+  <!-- USERNAME -->
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="username"
+      placeholder="Usuari"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+    />
+    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+      <div *ngIf="f.username.errors.required">Introdueix l'usuari</div>
+    </div>
+  </div>
+
+  <!-- PASSWORD -->
+  <div class="form-group">
+    <label>
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Contrasenya"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+      />
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Introdueix una contrasenya</div>
+      </div>
+    </label>
+  </div>
+
+  <!-- SUBMIT BUTTON -->
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+      <span
+        *ngIf="loading"
+        class="spinner-border spinner-border-sm mr-1"
+      ></span>
+      Log in
+    </button>
+    <!-- <a routerLink="/register" class="btn btn-link">Register</a> -->
+  </div>
+</form>

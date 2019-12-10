@@ -25,7 +25,7 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -124,6 +124,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "MLapp"
+    }
+  },
+  "defaultProject": "MLapp",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
