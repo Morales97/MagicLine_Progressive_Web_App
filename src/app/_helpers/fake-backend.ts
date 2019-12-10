@@ -3,7 +3,11 @@ import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTT
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
-let users = [{ id: 1, firstName: 'Jason', lastName: 'Watmore', username: 'test', password: 'test' }];
+let users = [
+    { id: 1, firstName: 'Jason', lastName: 'Watmore', username: 'test', password: 'test' },
+    { id: 2, username: 'dani', password: '123'},
+    { id: 3, username: 'carla', password: '123'}
+];
 
 
 // Fake API backend per fer testing: intercepta les HTTP requests pertinents i les gestiona aquí, en comptes de cridar una API real

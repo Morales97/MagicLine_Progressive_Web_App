@@ -8,11 +8,11 @@ import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
+import { ChecksComponent } from './checks/checks.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-//fake backend for testing
-import { fakeBackendProvider } from './_helpers';
+import { fakeBackendProvider, JwtInterceptor, ErrorInterceptor } from './_helpers';
 
 
 @NgModule({
@@ -20,7 +20,8 @@ import { fakeBackendProvider } from './_helpers';
     AppComponent,
     HomeComponent,
     LoginComponent,
-    AdminComponent
+    AdminComponent,
+    ChecksComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,14 @@ import { fakeBackendProvider } from './_helpers';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [fakeBackendProvider],
+  providers: [
+    // HTTP_INTERCEPTORS will group Jwt and Error interceptors
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+    // fake backend
+    fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -58,10 +58,12 @@ export class LoginComponent implements OnInit {
         .subscribe(
             data => {         // if correct, navigate to URL
                 this.router.navigate([this.returnUrl]);
+                console.log("logged in")
             },
             error => {        // if error, display it
                 this.error = error;
                 this.loading = false;
+                console.log("error in log in")
             });
   }
 }
