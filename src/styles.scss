@@ -16,6 +16,10 @@ body {
     margin: 0 auto;
 }
 
+.alert-danger {
+    color: red;
+}
+
 header {
     background: $primary;
     padding: 1em 0;

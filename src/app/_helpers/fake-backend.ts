@@ -4,9 +4,9 @@ import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
 let users = [
-    { id: 1, firstName: 'Jason', lastName: 'Watmore', username: 'test', password: 'test' },
-    { id: 2, username: 'dani', password: '123'},
-    { id: 3, username: 'carla', password: '123'}
+    { id: 1, username: 'test', password: 'test', tram: 12 },
+    { id: 2, username: 'dani', password: '123', tram: 5},
+    { id: 3, username: 'carla', password: '123', tram: 9}
 ];
 
 
@@ -44,8 +44,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             return ok({
                 id: user.id,
                 username: user.username,
-                firstName: user.firstName,
-                lastName: user.lastName,
+                tram: user.tram,
                 token: 'fake-jwt-token'
             })
         }
