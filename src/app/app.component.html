@@ -4,10 +4,11 @@
     <nav>
       <ul>
         <li><a href="#" routerLink="/">Home</a></li>
-        <li><a href="#" routerLink="/checks" *ngIf="currentUser">Checks</a></li>
+        <li><a href="#" routerLink="/tram" *ngIf="currentUser">Tram</a></li>
         <li><a href="#" routerLink="/admin">Admin</a></li>
         <li><a href="#" routerLink="/login" *ngIf="!currentUser">Log in</a></li>
         <li><a href="#" routerLink="/login" *ngIf="currentUser" (click)="logout()">Log out</a></li>
+        <li *ngIf="currentUser"><a><strong>{{ currentUser.username }} </strong></a></li>
       </ul>
     </nav>
   </div>

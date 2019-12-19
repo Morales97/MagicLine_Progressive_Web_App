@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
-import { ChecksComponent } from './checks/checks.component';
+import { TramComponent } from './tram/tram.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -21,7 +21,7 @@ import { fakeBackendProvider, JwtInterceptor, ErrorInterceptor } from './_helper
     HomeComponent,
     LoginComponent,
     AdminComponent,
-    ChecksComponent
+    TramComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +31,7 @@ import { fakeBackendProvider, JwtInterceptor, ErrorInterceptor } from './_helper
     HttpClientModule
   ],
   providers: [
-    // HTTP_INTERCEPTORS will group Jwt and Error interceptors
+    // HTTP_INTERCEPTORS will group JWT and Error interceptors
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 

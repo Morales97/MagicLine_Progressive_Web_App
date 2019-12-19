@@ -3,7 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
 import { AdminComponent } from "./admin/admin.component";
-import { ChecksComponent } from "./checks/checks.component";
+import { TramComponent } from "./tram/tram.component";
 import { AuthGuard } from './_helpers';
 
 const routes: Routes = [
@@ -20,8 +20,8 @@ const routes: Routes = [
     component: AdminComponent
   },
   {
-    path: "checks",
-    component: ChecksComponent,
+    path: "tram",
+    component: TramComponent,
     canActivate: [AuthGuard]    // accés restringit a usuaris logged in
   },
 

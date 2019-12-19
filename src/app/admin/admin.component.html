@@ -1,4 +1,25 @@
-<p>admin works!</p>
+<p>admin page</p>
 
-<p><a routerLink="/login">Go to login</a></p>
-<p><a routerLink="/home">Go to home</a></p>
+<p>LLista d'usuaris:</p>
+<ul *ngIf='usersList'>
+    <li *ngFor='let user of usersList'>
+        <strong> Usuari: </strong>{{ user.username }} 
+        <br>
+        <strong>#Tram: </strong>{{ user.tram_num_id }}
+        <br>
+        <strong>Permís: </strong>{{ user.permissionLevel }}
+        <br>
+    </li>
+</ul>
+
+<p>Llista de trams:</p>
+<ul *ngIf='tramsList'>
+    <li *ngFor='let tram of tramsList'>
+        <strong> Tram: </strong>{{ tram.name }} 
+        <br>
+        <strong>#Tram: </strong>{{ tram.num_id }}
+        <br>
+        <strong>State: </strong>{{ tram.state }}
+        <br>
+    </li>
+</ul>

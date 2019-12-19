@@ -1,0 +1,11 @@
+<p>Pàgina per editar els checks de tram</p>
+<br>
+
+<div *ngIf=tram> 
+    <p>{{tram.name}}</p>
+    <p>#Tram: {{tram.num_id}}</p>
+    <p>{{tram.state}}</p>
+</div>
+
+<button (click)="openTram()" *ngIf=tram>Open tram</button>
+<button (click)="closeTram()" *ngIf=tram>Close tram</button>
