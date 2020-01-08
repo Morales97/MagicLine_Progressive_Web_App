@@ -14,7 +14,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { fakeBackendProvider, JwtInterceptor, ErrorInterceptor } from './_helpers';
 
-
 @NgModule({
   declarations: [
     AppComponent,

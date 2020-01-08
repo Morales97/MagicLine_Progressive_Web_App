@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './_services';
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,6 +20,7 @@ export class AppComponent {
       // subscribe to currentUser to know if user is logged in/out
       this.authService.currentUser.subscribe(x => this.currentUser = x);
   }
+
 
   logout() {
       this.authService.logout();

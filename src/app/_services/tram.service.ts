@@ -20,6 +20,6 @@ export class TramService {
     }
 
     closeTram(num_id){
-        return this.http.post('http://localhost:3000/openTram/' + num_id.toString(), {})
+        return this.http.post('http://localhost:3000/closeTram/' + num_id.toString(), {})
     }
 }
