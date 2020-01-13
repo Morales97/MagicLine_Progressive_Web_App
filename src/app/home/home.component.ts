@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import {TramService} from "../_services";
 
 
 declare var ol: any;
@@ -9,13 +10,24 @@ declare var ol: any;
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor(    
+    private tramService: TramService
+    ) {}
 
   map: any;
 
   lonLat(x, y) {
     return ol.proj.fromLonLat([x, y]);
     // return new ol.proj.fromLonLat([x, y]);
+  }
+
+  // aquest botó és per fer testing de que desde el mòbil si que respon bé a una API HTTPS
+  onClick(){
+    this.tramService.getAPIdata().subscribe(
+      data => {
+        console.log(data)
+      }
+    )
   }
   
   ngOnInit() {

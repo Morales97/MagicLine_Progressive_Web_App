@@ -2,13 +2,15 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { AuthService } from "../_services";
+import { AuthService, TramService } from "../_services";
 import { first } from 'rxjs/operators';
+import { Globals } from '../app.global';
 
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.scss"]
+  styleUrls: ["./login.component.scss"],
+  providers: [ Globals ]
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -16,12 +18,14 @@ export class LoginComponent implements OnInit {
   loading = false;
   returnUrl: String;
   error: String;
+  response: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private global : Globals
   ) {
     // redirect to home if already logged in
     if (this.authService.currentUserValue) {
@@ -54,7 +58,7 @@ export class LoginComponent implements OnInit {
 
     this.loading = true;
     console.log(this.f.username.value)
-    this.authService.login(this.f.username.value, this.f.password.value)  // returns an Observable to which we subscribe
+    this.authService.login(this.global.baseAPIUrl + '/auth', this.f.username.value, this.f.password.value)  // returns an Observable to which we subscribe
         .pipe(first())        // pipe(first()) unsubscribes from Observable after first value is emitted
         .subscribe(
             data => {         // if correct, navigate to URL

@@ -35,7 +35,7 @@ import { fakeBackendProvider, JwtInterceptor, ErrorInterceptor } from './_helper
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
     // fake backend
-    fakeBackendProvider
+    fakeBackendProvider,
   ],
   bootstrap: [AppComponent]
 })

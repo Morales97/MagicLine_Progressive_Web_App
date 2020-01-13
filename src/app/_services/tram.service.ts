@@ -11,15 +11,15 @@ export class TramService {
         return this.http.get('https://reqres.in/api/users')   
     }
 
-    getOwnTram(){
-        return this.http.get('http://localhost:3000/ownTram')   
+    getOwnTram(url){
+        return this.http.get(url)   
     }
 
-    openTram(num_id){
-        return this.http.post('http://localhost:3000/openTram/' + num_id.toString(), {})
+    openTram(url, num_id){
+        return this.http.post(url + '/' + num_id.toString(), {})
     }
 
-    closeTram(num_id){
-        return this.http.post('http://localhost:3000/closeTram/' + num_id.toString(), {})
+    closeTram(url, num_id){
+        return this.http.post(url + '/' + num_id.toString(), {})
     }
 }

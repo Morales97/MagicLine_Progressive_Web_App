@@ -1,10 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService, TramService } from '../_services';
+import { Globals } from '../app.global';
 
 @Component({
   selector: "app-checks",
   templateUrl: "./tram.component.html",
-  styleUrls: ["./tram.component.scss"]
+  styleUrls: ["./tram.component.scss"], 
+  providers: [ Globals ]
 })
 
 export class TramComponent implements OnInit {
@@ -13,7 +15,11 @@ export class TramComponent implements OnInit {
   tram: any;
 
 
-  constructor(private authService: AuthService, private tramService: TramService) {
+  constructor(
+    private authService: AuthService, 
+    private tramService: TramService,
+    private global: Globals
+    ) {
   }
 
   ngOnInit() {
@@ -22,20 +28,20 @@ export class TramComponent implements OnInit {
   }
 
   getOwnTram(){
-    this.tramService.getOwnTram().subscribe(data =>{
+    this.tramService.getOwnTram(this.global.baseAPIUrl + '/ownTram').subscribe(data =>{
       this.tram = data
       console.log(data)
     })
   }
 
   openTram(){
-    this.tramService.openTram(this.tram.num_id).subscribe(data => {
+    this.tramService.openTram(this.global.baseAPIUrl + '/openTram', this.tram.num_id).subscribe(data => {
       this.tram = data
     });
   }
 
   closeTram(){
-    this.tramService.closeTram(this.tram.num_id).subscribe(data => {
+    this.tramService.closeTram(this.global.baseAPIUrl + '/closeTram', this.tram.num_id).subscribe(data => {
       this.tram = data
     });
   }

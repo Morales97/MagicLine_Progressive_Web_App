@@ -7,11 +7,11 @@ export class AdminService {
 
     constructor(private http : HttpClient){}
 
-    getUsers(){
-        return this.http.get('http://localhost:3000/users')   
+    getUsers(url){
+        return this.http.get(url)   
     }
 
-    getTrams(){
-        return this.http.get('http://localhost:3000/trams')   
+    getTrams(url){
+        return this.http.get(url)   
     }
 }

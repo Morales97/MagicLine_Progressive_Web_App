@@ -19,7 +19,7 @@ export class AuthService {
         return this.currentUserSubject.value;
     }
 
-    login(username, password) {
+    login(url, username, password) {
         if(this.useFakeBackend){
         // FAKE LOG IN
             return this.http.post<any>('http://localhost:4200/users/authenticate', { username, password })
@@ -31,7 +31,7 @@ export class AuthService {
                 }));
         } else {
         // REAL LOG IN TO REST API
-            return this.http.post<any>('http://localhost:3000/auth', { username, password })
+            return this.http.post<any>(url, { username, password })
                 .pipe(map(user => {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUser', JSON.stringify(user));
