@@ -35,13 +35,13 @@ export class TramComponent implements OnInit {
   }
 
   openTram(){
-    this.tramService.openTram(this.global.baseAPIUrl + '/openTram', this.tram.num_id).subscribe(data => {
+    this.tramService.openTram(this.global.baseAPIUrl + '/openTram', this.tram.num).subscribe(data => {
       this.tram = data
     });
   }
 
   closeTram(){
-    this.tramService.closeTram(this.global.baseAPIUrl + '/closeTram', this.tram.num_id).subscribe(data => {
+    this.tramService.closeTram(this.global.baseAPIUrl + '/closeTram', this.tram.num).subscribe(data => {
       this.tram = data
     });
   }
