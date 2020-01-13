@@ -5,7 +5,7 @@
     <li *ngFor='let user of usersList'>
         <strong> Usuari: </strong>{{ user.username }} 
         <br>
-        <strong>#Tram: </strong>{{ user.tram_num_id }}
+        <strong>#Tram: </strong>{{ user.tram_num }}
         <br>
         <strong>Permís: </strong>{{ user.permissionLevel }}
         <br>
@@ -17,7 +17,7 @@
     <li *ngFor='let tram of tramsList'>
         <strong> Tram: </strong>{{ tram.name }} 
         <br>
-        <strong>#Tram: </strong>{{ tram.num_id }}
+        <strong>#Tram: </strong>{{ tram.num }}
         <br>
         <strong>State: </strong>{{ tram.state }}
         <br>
