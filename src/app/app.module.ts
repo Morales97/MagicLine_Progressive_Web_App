@@ -13,6 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { fakeBackendProvider, JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { SizeDetectorComponent } from './size-detector/size-detector.component';
+import { ResizeService } from './size-detector/resize.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { fakeBackendProvider, JwtInterceptor, ErrorInterceptor } from './_helper
     HomeComponent,
     LoginComponent,
     AdminComponent,
-    TramComponent
+    TramComponent,
+    SizeDetectorComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,7 @@ import { fakeBackendProvider, JwtInterceptor, ErrorInterceptor } from './_helper
     // HTTP_INTERCEPTORS will group JWT and Error interceptors
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    ResizeService,
 
     // fake backend
     fakeBackendProvider,

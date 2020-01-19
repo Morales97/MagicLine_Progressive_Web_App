@@ -3,7 +3,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
-$primary: rgb(225, 110, 10);
+$primary: rgb(10, 00, 00);
 
 body {
     margin: 0;
@@ -28,8 +28,8 @@ header {
         color: white;
         text-decoration: none;
     }
-    a.logo {
-        font-weight: bold;
+    a.logo img {
+      margin-top: 10px
     }
 
     nav {
