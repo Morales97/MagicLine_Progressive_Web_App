@@ -1,6 +1,8 @@
+<!-- dropdown nearly finished, link not working 
+https://css-tricks.com/convert-menu-to-dropdown/ -->
 <header>
   <div class="container">
-    <a routerLink="/" href="" class="logo"> <img src="logo_bml.png"> </a>
+    <a routerLink="/" href="" class="logo"> <img src="assets/logo_bml.png"> </a>
     <nav>
       <ul>
         <li><a href="#" routerLink="/">Home</a></li>
@@ -10,6 +12,13 @@
         <li><a href="#" routerLink="/login" *ngIf="currentUser" (click)="logout()">Log out</a></li>
         <li *ngIf="currentUser"><a><strong>{{ currentUser.username }} </strong></a></li>
       </ul>
+      <select>
+        <option value="#" routerLink="/"> Home </option>
+        <option value="#" routerLink="/tram" *ngIf="currentUser">Tram </option>
+        <option value="#" routerLink="/admin">Admin </option>
+        <option value="#" routerLink="/login" *ngIf="!currentUser">Log In </option>
+        <option value="#" routerLink="/login" *ngIf="currentUser" (click)="logout()"> Log Out </option>
+      </select>
     </nav>
   </div>
 </header>
@@ -17,7 +26,7 @@
 
 
 
-<div class="container">
+<div class="container2">
 
   <router-outlet></router-outlet>
 

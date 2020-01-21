@@ -43,7 +43,7 @@ body{
 }
 
 .textbox i{
-  width: 26px;
+  width: 0%;
   float: left;
   text-align: center;
 }
@@ -54,7 +54,7 @@ body{
   background: none;
   color: black;
   font-size: 18px;
-  width: 100px;
+  width: 100px 100%;
   float: left;
   //margin: 10px;
 }
@@ -68,19 +68,20 @@ body{
   cursor: pointer;
   margin: 20px 0;
   transform: translate(-50%, -20%);
-  width: 21%;
+  width: 100%;
   position: absolute;
-  top: 62%;
+  top: 95%;
   left: 50%;
 }
 
 button{
+  color: black;
   background-color: Transparent;
-    background-repeat:no-repeat;
-    border: none;
-    cursor:pointer;
-    overflow: hidden;
-    outline:none;
-    width: 250px;
-    font-size: 18px;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  width: 250px;
+  font-size: 18px;
 }

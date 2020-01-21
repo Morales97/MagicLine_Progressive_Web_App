@@ -16,6 +16,11 @@ body {
     margin: 0 auto;
 }
 
+.container2{
+  width: 100%;
+  margin: 0 auto;
+}
+
 .alert-danger {
     color: red;
 }
@@ -29,7 +34,12 @@ header {
         text-decoration: none;
     }
     a.logo img {
-      margin-top: 10px
+      width: 5%;
+      height: 5%;
+      @media only screen and (max-width: 960px) {
+        width: 15%;
+        height: 15%;
+      }
     }
 
     nav {
@@ -47,6 +57,17 @@ header {
                     background: darken($primary, 10%);
                 }
             }
+        }
+        select {display:none};
+        @media only screen and (max-width: 960px) {
+
+          ul     {display: none;}
+          select {
+            display: inline-block;
+            color: white;
+            background-color: black;
+            border-color: white;
+          }
         }
     }
 }

@@ -4,7 +4,6 @@
   <h1>LOG IN</h1>
   <!-- USERNAME -->
   <div class = "textbox">
-    <i class="far fa-user"></i>
     <input
       type="text"
       formControlName="username"
@@ -15,7 +14,6 @@
   </div>
   <!-- PASSWORD -->
   <div class = "textbox">
-    <i class="fas fa-lock"></i>
     <input
       type="password"
       formControlName="password"
@@ -27,21 +25,24 @@
       <div *ngIf="f.password.errors.required">Introdueix una contrasenya</div>
     </div>
   </div>
+
+  <!-- BUTTON -->
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+      <span
+        *ngIf="loading"
+        class="spinner-border spinner-border-sm mr-1"
+      ></span>
+      SIGN IN
+    </button>
+    <!-- <a routerLink="/register" class="btn btn-link">Register</a> -->
+  </div>
 </div>
 
-<!-- BUTTON -->
-<div class="form-group">
-  <button [disabled]="loading" class="btn btn-primary">
-    <span
-      *ngIf="loading"
-      class="spinner-border spinner-border-sm mr-1"
-    ></span>
-    SIGN IN
-  </button>
-  <!-- <a routerLink="/register" class="btn btn-link">Register</a> -->
-</div>
 </form>
 <div *ngIf="error" class="alert-danger">{{ error }}</div>
+
+
 
 <!-- USERNAME
   <div class="form-group">

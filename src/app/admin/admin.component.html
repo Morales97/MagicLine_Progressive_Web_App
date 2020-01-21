@@ -1,9 +1,8 @@
-<p>admin page</p>
-
+<div class ="container">
 <p>LLista d'usuaris:</p>
 <ul *ngIf='usersList'>
     <li *ngFor='let user of usersList'>
-        <strong> Usuari: </strong>{{ user.username }} 
+        <strong> Usuari: </strong>{{ user.username }}
         <br>
         <strong>#Tram: </strong>{{ user.tram_num }}
         <br>
@@ -15,7 +14,7 @@
 <p>Llista de trams:</p>
 <ul *ngIf='tramsList'>
     <li *ngFor='let tram of tramsList'>
-        <strong> Tram: </strong>{{ tram.name }} 
+        <strong> Tram: </strong>{{ tram.name }}
         <br>
         <strong>#Tram: </strong>{{ tram.num }}
         <br>
@@ -23,3 +22,4 @@
         <br>
     </li>
 </ul>
+</div>
