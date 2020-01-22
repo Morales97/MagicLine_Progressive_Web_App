@@ -1,5 +1,18 @@
 <div class ="container">
-<p>LLista d'usuaris:</p>
+  <table *ngIf='usersList'>
+    <tr>
+      <th> NOM COORDINADOR </th>
+      <th> TRAM </th>
+      <th> ESTAT </th>
+    </tr>
+    <tr *ngFor='let user of usersList'>
+      <td> {{ user.username }} </td>
+      <td> {{ user.tram_num }} </td>
+      <td> {{ user.permissionLevel }} </td>
+    </tr>
+  </table>
+
+<!-- <p>LLista d'usuaris:</p>
 <ul *ngIf='usersList'>
     <li *ngFor='let user of usersList'>
         <strong> Usuari: </strong>{{ user.username }}
@@ -21,5 +34,5 @@
         <strong>State: </strong>{{ tram.state }}
         <br>
     </li>
-</ul>
+</ul> -->
 </div>

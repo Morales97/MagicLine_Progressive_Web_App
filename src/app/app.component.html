@@ -1,4 +1,4 @@
-<!-- dropdown nearly finished, link not working 
+<!-- dropdown nearly finished, link not working
 https://css-tricks.com/convert-menu-to-dropdown/ -->
 <header>
   <div class="container">
@@ -13,10 +13,10 @@ https://css-tricks.com/convert-menu-to-dropdown/ -->
         <li *ngIf="currentUser"><a><strong>{{ currentUser.username }} </strong></a></li>
       </ul>
       <select>
-        <option value="#" routerLink="/"> Home </option>
-        <option value="#" routerLink="/tram" *ngIf="currentUser">Tram </option>
-        <option value="#" routerLink="/admin">Admin </option>
-        <option value="#" routerLink="/login" *ngIf="!currentUser">Log In </option>
+        <option> <a href="#" routerLink="/">Home</a> </option>
+        <option> <a href="#" routerLink="/tram" *ngIf="currentUser"><Tram</a></option>
+        <option> <a href="#" routerLink="/admin">Admin </a></option>
+        <option> <a href="#" routerLink="/login" *ngIf="currentUser" (click)="logout()">Log In </a></option>
         <option value="#" routerLink="/login" *ngIf="currentUser" (click)="logout()"> Log Out </option>
       </select>
     </nav>
