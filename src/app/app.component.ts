@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './_services';
+import { PushNotificationsService} from 'ng-push';
 
 @Component({
   selector: 'app-root',
@@ -13,19 +14,21 @@ export class AppComponent{
 
   constructor(
       private router: Router,
-      private authService: AuthService
+      private authService: AuthService,
+      private _pushNotifications: PushNotificationsService
   ) {
+      this._pushNotifications.requestPermission();
       // subscribe to currentUser to know if user is logged in/out
       this.authService.currentUser.subscribe(x => this.currentUser = x);
-  }
-
-  onNavigate(location: string){
-    this.router.navigate([location]);
-    console.log(location);
   }
 
   logout() {
       this.authService.logout();
       this.router.navigate(['/login']);
+  }
+
+  onNavigate(location: string){
+    this.router.navigate([location]);
+    console.log(location);
   }
 }

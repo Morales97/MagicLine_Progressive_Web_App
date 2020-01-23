@@ -11,7 +11,8 @@ import { Globals } from '../app.global';
 export class AdminComponent implements OnInit {
 
   usersList: any;
-  tramsList: any; 
+  tramsList: any;
+  tram: any;
 
   constructor(private adminService: AdminService, private global : Globals) { }
 
@@ -32,4 +33,7 @@ export class AdminComponent implements OnInit {
     })
   }
 
+  /*userTram (tram_num: number){
+    return this.tramsList.getOwnTram(tram_num);
+  }*/
 }

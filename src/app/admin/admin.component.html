@@ -3,7 +3,7 @@
     <tr>
       <th> NOM COORDINADOR </th>
       <th> TRAM </th>
-      <th> ESTAT </th>
+      <th> PERMIS </th>
     </tr>
     <tr *ngFor='let user of usersList'>
       <td> {{ user.username }} </td>
@@ -12,6 +12,31 @@
     </tr>
   </table>
 
+  <table id="mytable" *ngIf='tramsList'>
+    <tr>
+      <th> NUM TRAM </th>
+      <th> ESTAT </th>
+    </tr>
+    <tr *ngFor ='let tram of tramsList'>
+      <td> {{ tram.num }} </td>
+      <td> {{ tram.state }} </td>
+    </tr>
+  </table>
+
+  <script type="text/javascript">
+    $('#mytable tr td').each(function(){
+      if($(this).text() == 'CLOSED'){
+        $(this).css('background-color','red');
+      }
+    });
+  </script>
+
+  <!-- <script type=java/j
+  $('#mytable tr td').each(function(){
+    if($(this).text() > 5)$(this).css('background-color','red');
+  });
+  </script>
+</div>
 <!-- <p>LLista d'usuaris:</p>
 <ul *ngIf='usersList'>
     <li *ngFor='let user of usersList'>
@@ -35,4 +60,3 @@
         <br>
     </li>
 </ul> -->
-</div>

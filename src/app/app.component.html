@@ -17,7 +17,7 @@ https://css-tricks.com/convert-menu-to-dropdown/ -->
         <option value="/tram" *ngIf="currentUser"> Tram </option>
         <option value ="/admin">Admin</option>
         <option value="/login" *ngIf="!currentUser"> Log In </option>
-        <option *ngIf="currentUser" (click)="logout()" value ="/login"> Log Out </option>
+        <option *ngIf="currentUser" (click)="logout()"> Log Out </option>
       </select>
     </nav>
   </div>

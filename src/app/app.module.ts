@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NotifierModule } from "angular-notifier";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { fakeBackendProvider, JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { SizeDetectorComponent } from './size-detector/size-detector.component';
 import { ResizeService } from './size-detector/resize.service';
+import { PushNotificationsModule } from 'ng-push'
+
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { ResizeService } from './size-detector/resize.service';
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    PushNotificationsModule // add it to imports
   ],
   providers: [
     // HTTP_INTERCEPTORS will group JWT and Error interceptors
