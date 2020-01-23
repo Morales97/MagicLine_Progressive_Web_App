@@ -19,6 +19,11 @@ export class AppComponent{
       this.authService.currentUser.subscribe(x => this.currentUser = x);
   }
 
+  onNavigate(location: string){
+    this.router.navigate([location]);
+    console.log(location);
+  }
+
   logout() {
       this.authService.logout();
       this.router.navigate(['/login']);
