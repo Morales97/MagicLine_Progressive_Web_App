@@ -9,12 +9,12 @@ declare var ol: any;
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"]
 })
-export class HomeComponent implements OnInit {
-  constructor(    
+export class HomeComponent { //implements OnInit {
+  constructor(
     private tramService: TramService
     ) {}
-
-  map: any;
+}
+/*  map: any;
 
   lonLat(x, y) {
     return ol.proj.fromLonLat([x, y]);
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
       }
     )
   }
-  
+
   ngOnInit() {
     this.map = new ol.Map({
       target: "map",
@@ -43,8 +43,8 @@ export class HomeComponent implements OnInit {
         zoom: 12
       })
     });
-  
-  
+
+
     /*
     var markers = new ol.Layers.Markers( "Markers" );
     this.map.addLayer(markers);
@@ -80,7 +80,7 @@ export class HomeComponent implements OnInit {
     var vectorLayer = new VectorLayer({
       source: vectorSource
     });
-*/
+
 
   }
-}
+}*/

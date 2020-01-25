@@ -16,7 +16,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { fakeBackendProvider, JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { SizeDetectorComponent } from './size-detector/size-detector.component';
 import { ResizeService } from './size-detector/resize.service';
-import { PushNotificationsModule } from 'ng-push'
+import { PushNotificationsModule } from 'ng-push';
+import { MapComponent } from './map/map.component'
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { PushNotificationsModule } from 'ng-push'
     LoginComponent,
     AdminComponent,
     TramComponent,
-    SizeDetectorComponent
+    SizeDetectorComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
