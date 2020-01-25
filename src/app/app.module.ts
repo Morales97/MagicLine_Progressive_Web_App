@@ -36,7 +36,7 @@ import { MapComponent } from './map/map.component'
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ReactiveFormsModule,
     HttpClientModule,
-    PushNotificationsModule // add it to imports
+    PushNotificationsModule
   ],
   providers: [
     // HTTP_INTERCEPTORS will group JWT and Error interceptors
