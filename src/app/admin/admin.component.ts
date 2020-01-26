@@ -12,7 +12,6 @@ export class AdminComponent implements OnInit {
 
   usersList: any;
   tramsList: any;
-  tram: any;
 
   constructor(private adminService: AdminService, private global : Globals) { }
 

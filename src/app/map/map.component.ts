@@ -28,6 +28,8 @@ var greenMarker = new marker({iconUrl: 'assets/green-icon.png'}),
 
 export class MapComponent implements OnInit {
   tramsList: any;
+  tram: any;
+
   constructor(private adminService: AdminService, private global : Globals) { }
 
   ngOnInit() {
@@ -38,23 +40,20 @@ export class MapComponent implements OnInit {
 
     this.getTramsList();
 
-      /*for (let tram of this.tramsList){
-        console.log(tram);
+    //error: tramsList not iterable -- si arreglem això el mapa ja estaria
+    /*for (let tram of this.tramsList){
+      if (tram.status == "CLOSED"){
+        L.marker([tram.lat,tram.long], {icon: redMarker}).addTo(map);
       }
-    /*if (this.tramsList.state == "CLOSED")
-      L.marker([this.tramsList.lat,this.tramsList.long], {icon: redMarker}).addTo(map);
-      console.log(this.tramsList.lat);
-      console.log(this.tramsList.long);
-      console.log(this.tramsList.state);*/
-
-    L.marker([41.3887,2.1589], {icon: greenMarker}).addTo(map);
+      else{
+        L.marker([tram.lat,tram.long], {icon: greenMarker}).addTo(map);
+      }
+    }*/
   }
 
   getTramsList() {
     this.adminService.getTrams(this.global.baseAPIUrl + '/trams').subscribe(data => {
-      this.tramsList = data
+      this.tramsList = data;
     })
-
   }
-
 }
