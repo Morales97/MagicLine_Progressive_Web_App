@@ -5,7 +5,12 @@ table{
   margin-left: 0%
 }
 
-table, th, td{
+table, tr, td{
   border: 1px solid black;
   border-collapse: collapse;
+}
+
+table tr:hover {
+  background: black;
+  color: white;
 }

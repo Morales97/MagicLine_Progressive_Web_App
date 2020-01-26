@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import {TramService} from "../_services";
 
-
 declare var ol: any;
 
 @Component({

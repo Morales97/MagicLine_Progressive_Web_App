@@ -2,17 +2,22 @@
   <table *ngIf='usersList'>
     <tr>
       <th> NOM COORDINADOR </th>
-      <th> TRAM </th>
+      <th *ngIf='tramsList'> TRAM </th>
+      <th *ngIf='tramsList'> ESTAT </th>
       <th> PERMIS </th>
     </tr>
     <tr *ngFor='let user of usersList'>
       <td> {{ user.username }} </td>
       <td> {{ user.tram_num }} </td>
-      <td> {{ user.permissionLevel }} </td>
+      <div *ngFor = 'let tram of tramsList'>
+        <td *ngIf = 'tram.num == user.tram_num'> {{ tram.state }} </td>
+      </div>
+      <td *ngIf = 'user.permissionLevel == 1'> ADMIN </td>
+      <td *ngIf = 'user.permissionLevel == 2048'> COORDINATOR </td>
     </tr>
   </table>
 
-  <table id="mytable" *ngIf='tramsList'>
+  <!-- <table id="mytable" *ngIf='tramsList'>
     <tr>
       <th> NUM TRAM </th>
       <th> ESTAT </th>
@@ -21,15 +26,7 @@
       <td> {{ tram.num }} </td>
       <td> {{ tram.state }} </td>
     </tr>
-  </table>
-
-  <script type="text/javascript">
-    $('#mytable tr td').each(function(){
-      if($(this).text() == 'CLOSED'){
-        $(this).css('background-color','red');
-      }
-    });
-  </script>
+  </table> -->
 
   <!-- <script type=java/j
   $('#mytable tr td').each(function(){

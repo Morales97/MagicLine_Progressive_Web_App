@@ -32,8 +32,4 @@ export class AdminComponent implements OnInit {
       this.tramsList = data
     })
   }
-
-  /*userTram (tram_num: number){
-    return this.tramsList.getOwnTram(tram_num);
-  }*/
 }
