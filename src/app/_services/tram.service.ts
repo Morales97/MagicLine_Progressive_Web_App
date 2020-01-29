@@ -19,6 +19,10 @@ export class TramService {
         return this.http.post(url + '/' + num_id.toString(), {})
     }
 
+    pasEscombra(url, num_id){
+        return this.http.post(url + '/' + num_id.toString(), {})
+    }
+
     closeTram(url, num_id){
         return this.http.post(url + '/' + num_id.toString(), {})
     }

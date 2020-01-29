@@ -42,6 +42,12 @@ export class TramComponent implements OnInit {
     });
   }
 
+  pasEscombra(){
+    this.tramService.pasEscombra(this.global.baseAPIUrl + '/escombra', this.tram.num).subscribe(data => {
+      this.tram = data
+    });
+  }
+
   closeTram(){
     this.tramService.closeTram(this.global.baseAPIUrl + '/closeTram', this.tram.num).subscribe(data => {
       this.tram = data
