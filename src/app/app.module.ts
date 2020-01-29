@@ -14,8 +14,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { fakeBackendProvider, JwtInterceptor, ErrorInterceptor } from './_helpers';
-import { SizeDetectorComponent } from './size-detector/size-detector.component';
-import { ResizeService } from './size-detector/resize.service';
 import { PushNotificationsModule } from 'ng-push';
 import { MapComponent } from './map/map.component'
 
@@ -27,7 +25,6 @@ import { MapComponent } from './map/map.component'
     LoginComponent,
     AdminComponent,
     TramComponent,
-    SizeDetectorComponent,
     MapComponent
   ],
   imports: [
@@ -42,7 +39,6 @@ import { MapComponent } from './map/map.component'
     // HTTP_INTERCEPTORS will group JWT and Error interceptors
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    ResizeService,
 
     // fake backend
     fakeBackendProvider,
