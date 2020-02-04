@@ -10,7 +10,9 @@
       <td> {{ user.username }} </td>
       <td> {{ user.tram_num }} </td>
       <div *ngFor = 'let tram of tramsList'>
-        <td *ngIf = 'tram.num == user.tram_num'> {{ tram.state }} </td>
+        <td  class = 'open' *ngIf = 'tram.num == user.tram_num && tram.state == "Obert"'> {{ tram.state }} </td>
+        <td  class = 'escombra' *ngIf = 'tram.num == user.tram_num && tram.state == "Escombrant"'> {{ tram.state }} </td>
+        <td  class = 'closed' *ngIf = 'tram.num == user.tram_num && tram.state == "Tancat"'> {{ tram.state }} </td>
       </div>
       <td *ngIf = 'user.permissionLevel == 1'> ADMIN </td>
       <td *ngIf = 'user.permissionLevel == 2048'> COORDINATOR </td>

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { AuthService, TramService } from '../_services';
 import { Globals } from '../app.global';
 import { PushNotificationsService} from 'ng-push';
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-checks",
@@ -15,13 +16,15 @@ export class TramComponent implements OnInit {
   currentUser: any;
   tram: any;
   incidents: any[];
+  numIncidents: number;
 
 
   constructor(
     private authService: AuthService,
     private tramService: TramService,
     private global: Globals,
-    private _pushNotifications: PushNotificationsService
+    private _pushNotifications: PushNotificationsService,
+    private router: Router
     ) {
   }
 
@@ -34,6 +37,7 @@ export class TramComponent implements OnInit {
     this.tramService.getOwnTram(this.global.baseAPIUrl + '/ownTram').subscribe(data =>{
       this.tram = data
       this.incidents = this.tram.incidents
+      this.numIncidents = this.incidents.length;
       console.log(this.tram)
       console.log(this.incidents.length)
     })
@@ -66,5 +70,9 @@ export class TramComponent implements OnInit {
         res => console.log(res),
         err => console.log(err)
     );
+  }
+
+  navigateToDetails(){
+    this.router.navigate(["/incidents"]);
   }
 }
