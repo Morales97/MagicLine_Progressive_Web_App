@@ -6,6 +6,7 @@ import { AdminComponent } from "./admin/admin.component";
 import { TramComponent } from "./tram/tram.component";
 import { AuthGuard } from './_helpers';
 import { MapComponent } from './map/map.component';
+import { IncidentsComponent } from './incidents/incidents.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path: "tram",
     component: TramComponent,
+    canActivate: [AuthGuard]    // accés restringit a usuaris logged in
+  },
+  {
+    path: "incidents",
+    component: IncidentsComponent,
     canActivate: [AuthGuard]    // accés restringit a usuaris logged in
   },
 

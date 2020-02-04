@@ -8,9 +8,20 @@ table{
 table, tr, td{
   border: 1px solid black;
   border-collapse: collapse;
-  .closed{
+
+
+  .open {
+    background-color: green;
+  }
+
+  .escombra {
+    background-color: yellow;
+  }
+
+  .closed {
     background-color: red;
   }
+
 }
 
 table tr:hover {
