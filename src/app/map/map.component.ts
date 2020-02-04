@@ -36,14 +36,14 @@ export class MapComponent implements OnInit {
     var pointD = new L.LatLng (41.4247, 2.1659);
     var pointList = [pointA, pointB, pointC, pointD];
 
-    if(this.tramsList[0].state == "CLOSED"){
+    if(this.tramsList[0].state == "Tancat"){
       var color_state = 'red'
     }
-    else if(this.tramsList[0].state == "OPEN"){
+    else if(this.tramsList[0].state == "Obert"){
       var color_state = 'green'
     }
     else{
-      var color_state = 'orange'
+      var color_state = 'yellow'
     }
 
     new L.Polyline(pointList, {

@@ -1,7 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import {TramService} from "../_services";
-
-declare var ol: any;
 
 @Component({
   selector: "app-home",
@@ -9,7 +6,10 @@ declare var ol: any;
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent {
+
+  test_var: any;
+
   constructor(
-    private tramService: TramService
     ) {}
+
 }
