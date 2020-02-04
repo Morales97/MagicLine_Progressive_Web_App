@@ -1,22 +1,2 @@
-<script type = "text/typescript">
-  console.log ("here");
-</script>
-
 <div id="map">
-</div>
-
-<div *ngIf = 'tramList'>
-  <div *ngFor = 'let tram of tramsList'>
-    <div *ngIf = 'tram.state == "CLOSED"'>
-      <script type = "text/typescript">
-        console.log ("here");
-        L.marker([ {{ tram.lat }} , {{ tram.long }} ], {icon: redMarker}).addTo(map);
-      </script>
-    </div>
-    <div *ngIf = 'tram.state == "OPEN"'>
-      <script type = "text/typescript">
-        L.marker([ {{ tram.lat }} , {{ tram.long }} ], {icon: greenMarker}).addTo(map);
-      </script>
-    </div>
-  </div>
 </div>
