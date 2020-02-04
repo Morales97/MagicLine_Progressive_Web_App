@@ -3,7 +3,6 @@ import { Globals } from '../app.global';
 import { AdminService } from '../_services';
 import * as L from 'leaflet';
 
-
 var marker = L.Icon.extend({
     options: {
         //shadowUrl: 'icon.png',
@@ -19,6 +18,7 @@ var greenMarker = new marker({iconUrl: 'assets/green-icon.png'}),
     redMarker = new marker({iconUrl: 'assets/red-icon.png'}),
     orangeMarker = new marker({iconUrl: 'assets/orange-icon.png'});
 
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -27,8 +27,8 @@ var greenMarker = new marker({iconUrl: 'assets/green-icon.png'}),
 })
 
 export class MapComponent implements OnInit {
+
   tramsList: any;
-  tram: any;
 
   constructor(private adminService: AdminService, private global : Globals) { }
 
@@ -40,6 +40,10 @@ export class MapComponent implements OnInit {
 
     this.getTramsList();
 
+    /*for (let tram in this.tramsList){
+      console.log (tramsList.get);
+    }*/
+
     //error: tramsList not iterable -- si arreglem això el mapa ja estaria
     /*for (let tram of this.tramsList){
       if (tram.status == "CLOSED"){
@@ -47,13 +51,11 @@ export class MapComponent implements OnInit {
       }
       else{
         L.marker([tram.lat,tram.long], {icon: greenMarker}).addTo(map);
-      }
-    }*/
+      }*/
   }
-
-  getTramsList() {
-    this.adminService.getTrams(this.global.baseAPIUrl + '/trams').subscribe(data => {
+    getTramsList() {
+      this.adminService.getTrams(this.global.baseAPIUrl + '/trams').subscribe(data => {
       this.tramsList = data;
-    })
-  }
+      })
+    }
 }

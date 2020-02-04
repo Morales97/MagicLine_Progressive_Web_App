@@ -8,6 +8,9 @@ table{
 table, tr, td{
   border: 1px solid black;
   border-collapse: collapse;
+  .closed{
+    background-color: red;
+  }
 }
 
 table tr:hover {
