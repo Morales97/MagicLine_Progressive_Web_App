@@ -5,8 +5,15 @@
       <p>{{tram.name}}</p>
       <p>#Tram: {{tram.num}}</p>
       <p>{{tram.state}}</p>
+      <p>És un avituallament? {{tram.avituallament}}</p>
+      <p *ngIf=tram.avituallament>S'ha rebut l'avituallament? {{tram.avituallament_rebut}}</p>
+      <p>S'ha rebut el material? {{tram.material_rebut}}</p>
+      <p>Incidències: {{tram.incidents}}</p>
   </div>
 
   <button (click)="openTram()" *ngIf=tram>Open tram</button>
+  <button (click)="pasEscombra()" *ngIf=tram>Escombrant tram</button>
   <button (click)="closeTram()" *ngIf=tram>Close tram</button>
+
+  
 </div>

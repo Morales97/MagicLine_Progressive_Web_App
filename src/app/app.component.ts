@@ -11,6 +11,7 @@ import { PushNotificationsService} from 'ng-push';
 export class AppComponent{
   title = 'MLapp';
   currentUser: any;
+  isAdmin: any;
 
   constructor(
       private router: Router,
@@ -20,6 +21,9 @@ export class AppComponent{
       this._pushNotifications.requestPermission();
       // subscribe to currentUser to know if user is logged in/out
       this.authService.currentUser.subscribe(x => this.currentUser = x);
+      this.authService.isAdmin.subscribe(x => this.isAdmin = x);
+      console.log(this.isAdmin)
+
   }
 
   logout() {
@@ -28,7 +32,13 @@ export class AppComponent{
   }
 
   onNavigate(location: string){
-    this.router.navigate([location]);
-    console.log(location);
+    switch (location) {
+      case "logout":
+        this.logout();
+        break;
+      default:
+        this.router.navigate([location]);
+        console.log(location);
+    }
   }
 }

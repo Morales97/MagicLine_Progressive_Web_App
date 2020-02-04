@@ -14,6 +14,7 @@ export class TramComponent implements OnInit {
 
   currentUser: any;
   tram: any;
+  incidents: any[];
 
 
   constructor(
@@ -32,12 +33,20 @@ export class TramComponent implements OnInit {
   getOwnTram(){
     this.tramService.getOwnTram(this.global.baseAPIUrl + '/ownTram').subscribe(data =>{
       this.tram = data
-      console.log(data)
+      this.incidents = this.tram.incidents
+      console.log(this.tram)
+      console.log(this.incidents.length)
     })
   }
 
   openTram(){
     this.tramService.openTram(this.global.baseAPIUrl + '/openTram', this.tram.num).subscribe(data => {
+      this.tram = data
+    });
+  }
+
+  pasEscombra(){
+    this.tramService.pasEscombra(this.global.baseAPIUrl + '/escombra', this.tram.num).subscribe(data => {
       this.tram = data
     });
   }

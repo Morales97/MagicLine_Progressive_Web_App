@@ -38,7 +38,7 @@ import { MapComponent } from './map/map.component'
   providers: [
     // HTTP_INTERCEPTORS will group JWT and Error interceptors
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
     // fake backend
     fakeBackendProvider,
