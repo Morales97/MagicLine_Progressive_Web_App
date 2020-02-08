@@ -8,7 +8,7 @@ export class Globals {
     // readonly baseAPIUrl: string = 'http://localhost:3000';
 
     // per utilitzar AWS
-    readonly baseAPIUrl: string = 'http://ec2-3-134-96-109.us-east-2.compute.amazonaws.com/api';
+    readonly baseAPIUrl: string = 'http://ec2-18-222-209-174.us-east-2.compute.amazonaws.com/';
 
     // local, HTTPS
     //readonly baseAPIUrl: string = 'https://localhost:3000';
