@@ -39,7 +39,6 @@ export class TramComponent implements OnInit {
       this.incidents = this.tram.incidents
       this.numIncidents = this.incidents.length;
       console.log(this.tram)
-      console.log(this.incidents.length)
     })
   }
 
