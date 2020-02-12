@@ -1,5 +1,5 @@
 <div class ="container">
-  <table *ngIf='usersList'>
+  <table class = "table1" *ngIf='usersList'>
     <tr>
       <th> NOM COORDINADOR </th>
       <th *ngIf='tramsList'> TRAM </th>
@@ -15,47 +15,33 @@
         <td  class = 'closed' *ngIf = 'tram.num == user.tram_num && tram.state == "Tancat"'> {{ tram.state }} </td>
       </div>
       <td *ngIf = 'user.permissionLevel == 1'> ADMIN </td>
-      <td *ngIf = 'user.permissionLevel == 2048'> COORDINATOR </td>
+      <td *ngIf = 'user.permissionLevel == 2048'> COORDINADOR </td>
     </tr>
   </table>
 
-  <!-- <table id="mytable" *ngIf='tramsList'>
-    <tr>
-      <th> NUM TRAM </th>
-      <th> ESTAT </th>
-    </tr>
-    <tr *ngFor ='let tram of tramsList'>
-      <td> {{ tram.num }} </td>
-      <td> {{ tram.state }} </td>
-    </tr>
-  </table> -->
-
-  <!-- <script type=java/j
-  $('#mytable tr td').each(function(){
-    if($(this).text() > 5)$(this).css('background-color','red');
-  });
-  </script>
+  <div *ngIf ='usersList'>
+    <table class = "table2" *ngFor='let user of usersList'>
+      <tr>
+        <th> NOM COORDINADOR </th>
+        <td> {{user.username}} </td>
+      </tr>
+      <tr *ngIf = 'tramsList'>
+        <th> TRAM </th>
+        <td> {{user.tram_num}} </td>
+      </tr>
+      <tr *ngIf = 'tramsList'>
+        <th> ESTAT </th>
+        <div *ngFor = 'let tram of tramsList'>
+          <td  class = 'open' *ngIf = 'tram.num == user.tram_num && tram.state == "Obert"'> {{ tram.state }} </td>
+          <td  class = 'escombra' *ngIf = 'tram.num == user.tram_num && tram.state == "Escombrant"'> {{ tram.state }} </td>
+          <td  class = 'closed' *ngIf = 'tram.num == user.tram_num && tram.state == "Tancat"'> {{ tram.state }} </td>
+        </div>
+      </tr>
+      <tr>
+        <th> PERMIS </th>
+        <td *ngIf = 'user.permissionLevel == 1'> ADMIN </td>
+        <td *ngIf = 'user.permissionLevel == 2048'> COORDI </td>
+      </tr>
+    </table>
+  </div>
 </div>
-<!-- <p>LLista d'usuaris:</p>
-<ul *ngIf='usersList'>
-    <li *ngFor='let user of usersList'>
-        <strong> Usuari: </strong>{{ user.username }}
-        <br>
-        <strong>#Tram: </strong>{{ user.tram_num }}
-        <br>
-        <strong>Permís: </strong>{{ user.permissionLevel }}
-        <br>
-    </li>
-</ul>
-
-<p>Llista de trams:</p>
-<ul *ngIf='tramsList'>
-    <li *ngFor='let tram of tramsList'>
-        <strong> Tram: </strong>{{ tram.name }}
-        <br>
-        <strong>#Tram: </strong>{{ tram.num }}
-        <br>
-        <strong>State: </strong>{{ tram.state }}
-        <br>
-    </li>
-</ul> -->
