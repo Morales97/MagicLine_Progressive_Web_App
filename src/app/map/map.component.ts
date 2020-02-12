@@ -62,7 +62,6 @@ export class MapComponent implements OnInit {
       }
     }
   }
-}
 
 
   getTramsList() {

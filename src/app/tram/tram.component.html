@@ -3,11 +3,10 @@
 
   <div *ngIf=tram>
       <p>{{tram.name}} ,#Tram: {{tram.num}}</p>
-      <p> Estat: {{tram.state}}</p>
-      <p> Avituallament: {{tram.avituallament}}</p>
+      <p> {{tram.state}}</p>
+      <p>És un avituallament? {{tram.avituallament}}</p>
       <p *ngIf=tram.avituallament>S'ha rebut l'avituallament? {{tram.avituallament_rebut}}</p>
-      <p *ngIf='{{tram.material_rebut}}'> Material NO rebut </p>
-      <p *nfId='not {{tram.material_rebut}}'> Material Rebut </p>
+      <p>S'ha rebut el material? {{tram.material_rebut}}</p>
       <p>Incidències: {{numIncidents}} <button (click)="navigateToDetails()">Veure detalls</button></p>
   </div>
 
