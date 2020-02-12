@@ -35,7 +35,7 @@ export class MapComponent implements OnInit {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     */
-   
+
     for (let tram of this.tramsList){
 
       if(tram.state == "Tancat"){
@@ -47,12 +47,19 @@ export class MapComponent implements OnInit {
       else{
         var color_state = 'yellow' 
       }
-      new L.Polyline(tram.pointList, {
+      var line = new L.Polyline(tram.pointList, {
         color: color_state,
-        weight: 3,
+        weight: 5,
         opacity: 0.8,
         smoothFactor: 1
       }).addTo(map);
+      line.bindPopup("<b>" + tram.num + " - " + tram.name + "</b><br>" + tram.state)
+
+      if (tram.avituallament){
+        new L.marker(tram.pointList[0], {
+          color: 'red'
+        }).addTo(map)
+      }
     }
   }
 
