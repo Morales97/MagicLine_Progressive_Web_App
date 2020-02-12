@@ -29,11 +29,13 @@ export class MapComponent implements OnInit {
       id: 'mapbox/streets-v11',
       accessToken: 'pk.eyJ1IjoiZGFuaS1tb3JhbGVzIiwiYSI6ImNrNmo5ZW9lYjA2d2czbHAxcmJraGExajYifQ.zPNk-ypzqGXhGtHjt0DofQ'
     }).addTo(map);
-/*
+
+    /*  // Mapa que utilitza la free tile "Open Street Map", per si acaba el free tier de Mapbox
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-*/
+    */
+   
     for (let tram of this.tramsList){
 
       if(tram.state == "Tancat"){
