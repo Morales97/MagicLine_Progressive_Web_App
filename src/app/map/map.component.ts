@@ -39,14 +39,14 @@ export class MapComponent implements OnInit {
       else{
         var color_state = 'yellow'
       }
-      new L.Polyline(tram.pointList, {
+      var line = new L.Polyline(tram.pointList, {
         color: color_state,
         weight: 3,
         opacity: 0.5,
         smoothFactor: 1
       }).addTo(map);
-    }
   }
+}
 
 
   getTramsList() {
