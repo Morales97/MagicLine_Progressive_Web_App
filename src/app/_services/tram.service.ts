@@ -7,8 +7,8 @@ export class TramService {
 
     constructor(private http : HttpClient){}
     
-    getAPIdata(){
-        return this.http.get('https://reqres.in/api/users')   
+    getTram(url, num){
+        return this.http.get(url + '/' + num.toString(), {})   
     }
 
     getOwnTram(url){

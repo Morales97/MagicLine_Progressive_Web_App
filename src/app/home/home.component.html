@@ -1,21 +1,25 @@
 <div class ="container">
   <table class = "table1" *ngIf='usersList'>
     <tr>
-      <th> NOM COORDINADOR </th>
-      <th *ngIf='tramsList'> TRAM </th>
-      <th *ngIf='tramsList'> ESTAT </th>
-      <th> PERMIS </th>
+      <th> NUM </th>
+      <th> TRAM </th>
+      <th> ESTAT </th>
+      <th> MATERIAL REBUT?</th>
+      <th> AVIT. REBUT? </th>
+      <th> INCIDÈNCIES </th>
+      <th *ngIf = 'isAdmin'> ADMIN ONLY</th>
     </tr>
-    <tr *ngFor='let user of usersList'>
-      <td> {{ user.username }} </td>
-      <td> {{ user.tram_num }} </td>
-      <div *ngFor = 'let tram of tramsList'>
-        <td  class = 'open' *ngIf = 'tram.num == user.tram_num && tram.state == "Obert"'> {{ tram.state }} </td>
-        <td  class = 'escombra' *ngIf = 'tram.num == user.tram_num && tram.state == "Escombrant"'> {{ tram.state }} </td>
-        <td  class = 'closed' *ngIf = 'tram.num == user.tram_num && tram.state == "Tancat"'> {{ tram.state }} </td>
-      </div>
-      <td *ngIf = 'user.permissionLevel == 1'> ADMIN </td>
-      <td *ngIf = 'user.permissionLevel == 2048'> COORDINADOR </td>
+    <tr *ngFor='let tram of tramsList'>
+      <td> {{ tram.num }} </td>
+      <td> {{ tram.name }} </td>
+      <td  class = 'open' *ngIf = 'tram.state == "Obert"'> {{ tram.state }} </td>
+      <td  class = 'escombra' *ngIf = 'tram.state == "Escombrant"'> {{ tram.state }} </td>
+      <td  class = 'closed' *ngIf = 'tram.state == "Tancat"'> {{ tram.state }} </td>
+      <td > {{ tram.material_rebut }} </td>
+      <td *ngIf = 'tram.avituallament'> {{ tram.avituallament_rebut }} </td>
+      <td *ngIf = '!tram.avituallament'> {{ tram.avituallament}} </td>
+      <td > {{ tram.incidents.length}} </td>
+      <td *ngIf = 'isAdmin && tram.incidents.length > 0'><button>Veure</button></td>
     </tr>
   </table>
 

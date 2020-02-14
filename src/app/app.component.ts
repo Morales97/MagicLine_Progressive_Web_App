@@ -9,7 +9,7 @@ import { PushNotificationsService} from 'ng-push';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent{
-  title = 'MLapp';
+  title = 'ML Coordinació';
   currentUser: any;
   isAdmin: any;
 

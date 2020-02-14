@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { AuthService, TramService } from '../_services';
 import { Globals } from '../app.global';
 import { PushNotificationsService} from 'ng-push';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: "app-checks",
@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class TramComponent implements OnInit {
 
   currentUser: any;
+  isAdmin: any;
   tram: any;
   incidents: any[];
   numIncidents: number;
@@ -24,13 +25,27 @@ export class TramComponent implements OnInit {
     private tramService: TramService,
     private global: Globals,
     private _pushNotifications: PushNotificationsService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
     ) {
   }
 
   ngOnInit() {
-    this.currentUser = this.authService.currentUserValue
-    this.getOwnTram();
+    this.authService.currentUser.subscribe(x => this.currentUser = x);
+    this.authService.isAdmin.subscribe(x => this.isAdmin = x);
+    if(this.isAdmin){
+      this.getTram(this.activatedRoute.snapshot.params['num'])
+    } else {
+      this.getOwnTram();
+    }
+  }
+
+  getTram(tram_num){
+    this.tramService.getTram(this.global.baseAPIUrl + '/trams', tram_num).subscribe(data =>{
+      this.tram = data
+      this.incidents = this.tram.incidents
+      this.numIncidents = this.incidents.length;
+    })
   }
 
   getOwnTram(){
@@ -72,6 +87,6 @@ export class TramComponent implements OnInit {
   }
 
   navigateToDetails(){
-    this.router.navigate(["/incidents"]);
+    this.router.navigate(["/incidents/" + this.tram.num]);
   }
 }

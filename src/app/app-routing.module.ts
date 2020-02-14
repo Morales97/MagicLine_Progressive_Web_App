@@ -32,7 +32,12 @@ const routes: Routes = [
     canActivate: [AuthGuard]    // accés restringit a usuaris logged in
   },
   {
-    path: "incidents",
+    path: "tram/:num",
+    component: TramComponent,
+    canActivate: [AuthGuard]    // accés restringit a usuaris logged in
+  },
+  {
+    path: "incidents/:num",
     component: IncidentsComponent,
     canActivate: [AuthGuard]    // accés restringit a usuaris logged in
   },

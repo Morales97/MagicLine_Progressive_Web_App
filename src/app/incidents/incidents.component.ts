@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-incidents',
@@ -8,15 +8,19 @@ import { Router } from '@angular/router';
 })
 export class IncidentsComponent implements OnInit {
 
+  tram_num: any;
+
   constructor(
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.tram_num = this.activatedRoute.snapshot.params['num']
   }
 
 
   navigateToTram(){
-    this.router.navigate(["/tram"]);
+    this.router.navigate(["/tram/" + this.tram_num]);
   }
 }
