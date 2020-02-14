@@ -19,7 +19,7 @@
       <td *ngIf = 'tram.avituallament'> {{ tram.avituallament_rebut }} </td>
       <td *ngIf = '!tram.avituallament'> {{ tram.avituallament}} </td>
       <td > {{ tram.incidents.length}} </td>
-      <td *ngIf = 'isAdmin && tram.incidents.length > 0'><button>Veure</button></td>
+      <td *ngIf = 'isAdmin '><button (click)="navigateToTram(tram.num)">Veure</button></td>
     </tr>
   </table>
 

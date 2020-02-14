@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../_services';
 import { Globals } from '../app.global';
 import { AuthService } from '../_services';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: "app-home",
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit {
     private adminService: AdminService, 
     private global : Globals, 
     private authService: AuthService,
+    private router: Router,
     ) { }
 
   ngOnInit() {
@@ -38,5 +40,9 @@ export class HomeComponent implements OnInit {
     this.adminService.getTrams(this.global.baseAPIUrl + '/trams').subscribe(data => {
       this.tramsList = data
     })
+  }
+
+  navigateToTram(num){
+    this.router.navigate(["/tram/" + num]);
   }
 }
