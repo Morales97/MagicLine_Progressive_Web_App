@@ -11,10 +11,6 @@
           <td *ngIf = 'tram.state != "Escombrant"' (click)="pasEscombra()"> ESCOMBRANT </td>
           <td class = 'tancat' *ngIf = 'tram.state == "Tancat"'> TANCAT </td>
           <td *ngIf = 'tram.state != "Tancat"' (click)="closeTram()"> TANCAT </td>
-        </tr>
-      </table>
-      <table width = "100%">
-        <tr>
           <td class = 'obert' *ngIf='tram.avituallament && tram.avituallament_rebut' width = "50%"> AVITUALLAMENT </td>
           <td class = 'tancat' *ngIf = 'tram.avituallament && !tram.avituallament_rebut' width = "50%"> AVITUALLAMENT </td>
           <td class = 'obert' *ngIf = 'tram.material_rebut'> MATERIAL </td>
@@ -22,13 +18,34 @@
         </tr>
       </table>
 
-      <table class = "table2" *ngIf=tram>
+      <table width="100%" class = "table2">
+        <tr>
+          <td class = 'obert' *ngIf = 'tram.state == "Obert"'> OBERT </td>
+          <td *ngIf = 'tram.state != "Obert"' (click)="openTram()"> OBERT </td>
+        </tr>
+        <tr>
+          <td class = 'escombra' *ngIf = 'tram.state == "Escombrant"'> ESCOMBRANT </td>
+          <td *ngIf = 'tram.state != "Escombrant"' (click)="pasEscombra()"> ESCOMBRANT </td>
+        </tr>
+        <tr>
+          <td class = 'tancat' *ngIf = 'tram.state == "Tancat"'> TANCAT </td>
+          <td *ngIf = 'tram.state != "Tancat"' (click)="closeTram()"> TANCAT </td>
+        </tr>
+        <tr>
+          <td class = 'obert' *ngIf='tram.avituallament && tram.avituallament_rebut' width = "50%"> AVITUALLAMENT </td>
+          <td class = 'tancat' *ngIf = 'tram.avituallament && !tram.avituallament_rebut' width = "50%"> AVITUALLAMENT </td>
+        </tr>
+        <tr>
+          <td class = 'obert' *ngIf = 'tram.material_rebut'> MATERIAL </td>
+          <td class = 'tancat' *ngIf = '!tram.material_rebut'> MATERIAL </td>
+        </tr>
       </table>
-      <p></p>
-      <p></p>
+
+      <p> </p>
+      <p> </p>
       <p> <b> Incidències: </b> {{numIncidents}}</p>
 
-      <table *ngIf = incidents>
+      <table *ngIf = incidents class ="table1">
         <tr>
           <th> CATEGORY </th>
           <th> DESCRIPCIO </th>
@@ -46,18 +63,29 @@
           </div>
         </tr>
       </table>
-      <!-- <ul *ngIf = incidents type="square">
-        <li *ngFor = 'let inc of incidents'>
-          <ul type = "square">
-            <li> <b> CATEGORY: </b> {{inc.category}} </li>
-            <li> <b> DESCRIPCIO: </b> {{inc.description}} </li>
-            <li> <b> SOLVED: </b> {{inc.solved}} </li>
-            <li *ngIf='inc.comments'> <b> COMMENTARIS </b> </li>
-            <ul *ngIf='inc.comments'>
-              <li *ngFor = 'let comm of inc.comments'> {{comm.username}}: {{comm.comment}} </li>
-            </ul>
-          </ul>
-        </li>
-      </ul> -->
+      <table width = "100%" class = 'table2' *ngFor='let incident of incidents'>
+        <tr>
+          <th>TRAM</th>
+          <td> {{incident.tram_num}} </td>
+        </tr>
+        <tr>
+          <th> CATEGORY </th>
+          <td> {{incident.category}} </td>
+        </tr>
+        <tr>
+          <th>DESCRIPCIO</th>
+          <td> {{incident.description}} </td>
+        </tr>
+        <tr>
+          <th> SOLVED </th>
+          <td> {{ incidents.solved }} </td>
+        </tr>
+        <tr>
+          <td colspan="2"> <b> COMMENTS </b> </td>
+        </tr>
+        <tr *ngFor = 'let comm of incident.comments'>
+          <td colspan="2"> {{comm.username}}: {{comm.comment}} </td>
+        </tr>
+      </table>
   </div>
 </div>
