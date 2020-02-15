@@ -15,7 +15,7 @@
       <td  class = 'open' *ngIf = 'tram.state == "Obert"'> {{ tram.state }} </td>
       <td  class = 'escombra' *ngIf = 'tram.state == "Escombrant"'> {{ tram.state }} </td>
       <td  class = 'closed' *ngIf = 'tram.state == "Tancat"'> {{ tram.state }} </td>
-      <td > {{ tram.material_rebut }} </td>
+      <td> {{ tram.material_rebut }} </td>
       <td *ngIf = 'tram.avituallament'> {{ tram.avituallament_rebut }} </td>
       <td *ngIf = '!tram.avituallament'> {{ tram.avituallament}} </td>
       <td > {{ tram.incidents.length}} </td>
@@ -24,27 +24,37 @@
   </table>
 
   <div *ngIf ='usersList'>
-    <table class = "table2" *ngFor='let user of usersList'>
+    <table class = "table2" *ngFor='let tram of tramsList' width = "100%">
       <tr>
-        <th> NOM COORDINADOR </th>
-        <td> {{user.username}} </td>
+        <th> NUM </th>
+        <td> {{tram.num}} </td>
       </tr>
-      <tr *ngIf = 'tramsList'>
+      <tr>
         <th> TRAM </th>
-        <td> {{user.tram_num}} </td>
-      </tr>
-      <tr *ngIf = 'tramsList'>
-        <th> ESTAT </th>
-        <div *ngFor = 'let tram of tramsList'>
-          <td  class = 'open' *ngIf = 'tram.num == user.tram_num && tram.state == "Obert"'> {{ tram.state }} </td>
-          <td  class = 'escombra' *ngIf = 'tram.num == user.tram_num && tram.state == "Escombrant"'> {{ tram.state }} </td>
-          <td  class = 'closed' *ngIf = 'tram.num == user.tram_num && tram.state == "Tancat"'> {{ tram.state }} </td>
-        </div>
+        <td>{{tram.name}}</td>
       </tr>
       <tr>
-        <th> PERMIS </th>
-        <td *ngIf = 'user.permissionLevel == 1'> ADMIN </td>
-        <td *ngIf = 'user.permissionLevel == 2048'> COORDI </td>
+        <th> ESTAT </th>
+        <td  class = 'open' *ngIf = 'tram.state == "Obert"'> {{ tram.state }} </td>
+        <td  class = 'escombra' *ngIf = 'tram.state == "Escombrant"'> {{ tram.state }} </td>
+        <td  class = 'closed' *ngIf = 'tram.state == "Tancat"'> {{ tram.state }} </td>
+      </tr>
+      <tr>
+        <th> MATERIAL? </th>
+        <td> {{ tram.material_rebut }} </td>
+      </tr>
+      <tr>
+        <th> AVIT.? </th>
+        <td *ngIf = 'tram.avituallament'> {{ tram.avituallament_rebut }} </td>
+        <td *ngIf = '!tram.avituallament'> {{ tram.avituallament}} </td>
+      </tr>
+      <tr>
+        <th> INCIDÈNCIES </th>
+        <td > {{ tram.incidents.length}} </td>
+      </tr>
+      <tr *ngIf = 'isAdmin'>
+        <th> ADMIN </th>
+        <td *ngIf = 'isAdmin '><button (click)="navigateToTram(tram.num)">Veure</button></td>
       </tr>
     </table>
   </div>
