@@ -3,7 +3,7 @@
 
   <div *ngIf=tram>
     <p class = 'centre'> <b>TRAM NUMERO: {{tram.num}}</b> ({{tram.name}})</p>
-      <table width = "100%">
+      <table width = "100%" class = "table1">
         <tr>
           <td class = 'obert' *ngIf = 'tram.state == "Obert"'> OBERT </td>
           <td *ngIf = 'tram.state != "Obert"' (click)="openTram()"> OBERT </td>
@@ -15,26 +15,31 @@
       </table>
       <table width = "100%">
         <tr>
-          <td class = 'obert' *ngIf='tram.avituallament_rebut' width = "50%"> AVITUALLAMENT </td>
-          <td class = 'tancat' *ngIf = '!tram.avituallament_rebut' width = "50%"> AVITUALLAMENT </td>
+          <td class = 'obert' *ngIf='tram.avituallament && tram.avituallament_rebut' width = "50%"> AVITUALLAMENT </td>
+          <td class = 'tancat' *ngIf = 'tram.avituallament && !tram.avituallament_rebut' width = "50%"> AVITUALLAMENT </td>
           <td class = 'obert' *ngIf = 'tram.material_rebut'> MATERIAL </td>
           <td class = 'tancat' *ngIf = '!tram.material_rebut'> MATERIAL </td>
         </tr>
       </table>
 
+      <table class = "table2" *ngIf=tram>
+      </table>
       <p></p>
       <p></p>
       <p> <b> Incidències: </b> {{numIncidents}}</p>
 
-      <!-- <ul *ngIf = 'numIncidents > 0' type="square">
-        <li *ngFor = 'let inc of tram.incidents'> {{inc.category}}
+      <ul *ngIf = incidents type="square">
+        <li *ngFor = 'let inc of incidents'>
           <ul type = "square">
-            <li> <b> STATE: </b> {{inc.state}} </li>
+            <li> <b> CATEGORY: </b> {{inc.category}} </li>
             <li> <b> DESCRIPCIO: </b> {{inc.description}} </li>
-            <li> <b> COMMENT: </b> {{inc.comments.comment}} </li>
+            <li> <b> SOLVED: </b> {{inc.solved}} </li>
+            <li *ngIf='inc.comments'> <b> COMMENTARIS </b> </li>
+            <ul *ngIf='inc.comments'>
+              <li *ngFor = 'let comm of inc.comments'> {{comm.username}}: {{comm.comment}} </li>
+            </ul>
           </ul>
         </li>
-      </ul>-->
-      {{incidents}}
+      </ul>
   </div>
 </div>
