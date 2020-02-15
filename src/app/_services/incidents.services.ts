@@ -15,7 +15,7 @@ export class IncidentsServices {
         return this.http.get(url)
     }
 
-    openTram(url, num_id){
+    solveIncident(url, num_id){
         return this.http.post(url + '/' + num_id.toString(), {})
     }
 

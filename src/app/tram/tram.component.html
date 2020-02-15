@@ -55,7 +55,7 @@
         <tr *ngFor = 'let inc of incidents' width = '100%'>
           <td> {{inc.category}} </td>
           <td> {{inc.description}} </td>
-          <td> {{inc.solved}} </td>
+          <td (click)='changeState(inc._id)'> {{inc.solved}} </td>
           <div *ngIf = inc.comments>
             <tr *ngFor = 'let comm of inc.comments'>
               <td> {{comm.username}}: {{comm.comment}}</td>
@@ -63,7 +63,7 @@
           </div>
         </tr>
       </table>
-      
+
       <table width = "100%" class = 'table2' *ngFor='let incident of incidents'>
         <tr>
           <th>TRAM</th>
@@ -79,7 +79,8 @@
         </tr>
         <tr>
           <th> SOLVED </th>
-          <td> {{ incidents.solved }} </td>
+          <td *ngIf = '!incident.solved'(click)='changeState(incident._id)'> {{ incident.solved }} </td>
+          <td *ngIf = 'incident.solved'> {{ incident.solved }} </td>
         </tr>
         <tr>
           <td colspan="2"> <b> COMMENTS </b> </td>

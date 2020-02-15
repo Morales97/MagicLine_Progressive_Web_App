@@ -98,4 +98,10 @@ export class TramComponent implements OnInit {
       console.log (this.incidents);
     })
   }
+
+  changeState(inc_id: String){
+    console.log (inc_id);
+    this.incidentsServices.solveIncident(this.global.baseAPIUrl + '/incidentSolve', inc_id);
+    this.getIncident();
+  }
 }

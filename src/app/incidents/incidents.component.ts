@@ -25,6 +25,6 @@ export class IncidentsComponent implements OnInit {
   }
 
   submittedForm(){
-    
+
   }
 }
