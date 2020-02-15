@@ -1,5 +1,4 @@
-<div class = 'container'>
-  <table width = 100% *ngIf = 'incidentsList'>
+  <table class = 'table1' *ngIf = 'incidentsList'>
     <tr>
       <th> TRAM </th>
       <th> CATEGORY </th>
@@ -9,15 +8,44 @@
     </tr>
     <tr *ngFor = 'let incident of incidentsList'>
       <td> {{incident.tram_num}}
-      <td> {{incident.category}} </td>
+      <td *ngIf = 'incident.category == "Lleu"' class = 'open'> {{incident.category}} </td>
+      <td *ngIf = 'incident.category == "Greu"' class = 'escombra'> {{incident.category}} </td>
+      <td *ngIf = 'incident.category == "Molt Greu"' class = 'closed'> {{incident.category}} </td>
       <td> {{incident.description}} </td>
-      <td *ngIf = 'incident.solved' class = "open"> {{incident.solved}} </td>
-      <td *ngIf = '!incident.solved' class = "closed"> {{incident.solved}} </td>
+      <td *ngIf = 'incident.solved' class = 'open'> TRUE </td>
+      <td *ngIf = '!incident.solved' class = 'closed'> FALSE </td>
       <div *ngIf = incident.comments>
         <tr *ngFor = 'let comm of incident.comments'>
-          <td width = 100%> {{comm.username}}: {{comm.comment}}</td>
+          <td > {{comm.username}}: {{comm.comment}}</td>
         </tr>
       </div>
     </tr>
   </table>
-</div>
+
+  <table width = "100%" class = 'table2' *ngFor='let incident of incidentsList'>
+    <tr>
+      <th>TRAM</th>
+      <td> {{incident.tram_num}} </td>
+    </tr>
+    <tr>
+      <th> CATEGORY </th>
+      <td *ngIf = 'incident.category == "Lleu"' class = 'open'> {{incident.category}} </td>
+      <td *ngIf = 'incident.category == "Greu"' class = 'escombra'> {{incident.category}} </td>
+      <td *ngIf = 'incident.category == "Molt Greu"' class = 'closed'> {{incident.category}} </td>
+    </tr>
+    <tr>
+      <th>DESCRIPCIO</th>
+      <td> {{incident.description}} </td>
+    </tr>
+    <tr>
+      <th> SOLVED </th>
+      <td *ngIf = 'incident.solved' class = 'open'> TRUE </td>
+      <td *ngIf = '!incident.solved' class = 'closed'> FALSE </td>
+    </tr>
+    <tr>
+      <td colspan="2"> <b> COMMENTS </b> </td>
+    </tr>
+    <tr *ngFor = 'let comm of incident.comments'>
+      <td colspan="2"> {{comm.username}}: {{comm.comment}} </td>
+    </tr>
+  </table>
