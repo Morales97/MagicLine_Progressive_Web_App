@@ -1,0 +1,60 @@
+/*.textbox{
+  border: 2px solid;
+  margin-left: 5%;
+}
+
+.container2{
+  margin-left: 5%;
+  margin-top: 3%;
+}
+
+.table1{
+  width: 100%;
+}
+
+table tr, td{
+  border: 2px solid;
+  text-align: center;
+}
+
+.wtf{
+  width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+}*/
+
+.centre{
+  text-align: center;
+}
+
+button{
+  vertical-align: right;
+  margin-top: 2%;
+  background-color: Transparent;
+  border: 1px solid;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.container{
+  margin-top: 3%;
+}
+table tr, td{
+  border: 2px solid;
+  text-align: center;
+}
+
+table {
+  display: inline-table;
+  width: 100%;
+  border-top: 1px solid;
+  border: 2px solid;
+}
+
+table td input {
+  // display: block;
+  border: 1px solid;
+  width: 100%;
+}

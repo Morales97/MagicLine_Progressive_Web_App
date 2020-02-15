@@ -1,2 +1,24 @@
-<p>incidents works!</p>
-<button (click)="navigateToTram()">Torna a Tram</button>
+<div class = "container">
+  <h2 class='centre'> NOVA INCIDENCIA </h2>
+  <table class = "table1">
+    <tr>
+      <th> DESCRIPCIO <th>
+      <td> <input type = "text" type = "wtf" [(ngModel)]="serial"> </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <th rowspan="3"> CATEGORIA: </th>
+      <td> Lleu </td>
+    </tr>
+    <tr>
+      <td> Greu </td>
+    </tr>
+    <tr>
+      <td> Molt Greu </td>
+    </tr>
+  </table>
+  <button (click)='submittedForm()'class = "butt"> SUBMIT </button>
+</div>
+
+<!-- <button (click)="navigateToTram()">Torna a Tram</button> -->

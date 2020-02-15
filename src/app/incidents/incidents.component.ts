@@ -23,4 +23,8 @@ export class IncidentsComponent implements OnInit {
   navigateToTram(){
     this.router.navigate(["/tram/" + this.tram_num]);
   }
+
+  submittedForm(){
+    
+  }
 }

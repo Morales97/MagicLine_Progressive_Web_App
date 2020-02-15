@@ -43,7 +43,7 @@
 
       <p> </p>
       <p> </p>
-      <p> <b> Incidències: </b> {{numIncidents}}</p>
+      <p> <b> Incidències: </b> {{numIncidents}} <button class = "butt" (click)='navigateToDetails()'> CREAR INCIDENT </button> </p>
 
       <table *ngIf = incidents class ="table1">
         <tr>
@@ -63,6 +63,7 @@
           </div>
         </tr>
       </table>
+      
       <table width = "100%" class = 'table2' *ngFor='let incident of incidents'>
         <tr>
           <th>TRAM</th>
