@@ -28,7 +28,25 @@
       <p></p>
       <p> <b> Incidències: </b> {{numIncidents}}</p>
 
-      <ul *ngIf = incidents type="square">
+      <table *ngIf = 'incidents'>
+        <tr>
+          <th> CATEGORY </th>
+          <th> DESCRIPCIO </th>
+          <th> SOLVED </th>
+          <th> COMMENTS </th>
+        </tr>
+        <tr *ngFor = 'let inc of incidents' width = '100%'>
+          <td> {{inc.category}} </td>
+          <td> {{inc.description}} </td>
+          <td> {{inc.solved}} </td>
+          <div *ngIf = inc.comments>
+            <tr *ngFor = 'let comm of inc.comments'>
+              <td> {{comm.username}}: {{comm.comment}}</td>
+            </tr>
+          </div>
+        </tr>
+      </table>
+      <!-- <ul *ngIf = incidents type="square">
         <li *ngFor = 'let inc of incidents'>
           <ul type = "square">
             <li> <b> CATEGORY: </b> {{inc.category}} </li>
@@ -40,6 +58,6 @@
             </ul>
           </ul>
         </li>
-      </ul>
+      </ul> -->
   </div>
 </div>

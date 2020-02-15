@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminService } from '../_services';
+import { IncidentsServices } from '../_services';
 import { Globals } from '../app.global';
 
 @Component({
@@ -10,25 +10,18 @@ import { Globals } from '../app.global';
 })
 export class AdminComponent implements OnInit {
 
-  usersList: any;
-  tramsList: any;
+  incidentsList: any;
 
-  constructor(private adminService: AdminService, private global : Globals) { }
+  constructor(private incidentsServices: IncidentsServices, private global : Globals) { }
 
   ngOnInit() {
-    this.getUsersList();
-    this.getTramsList();
+    this.getIncidentsList()
   }
 
-  getUsersList() {
-    this.adminService.getUsers(this.global.baseAPIUrl + '/users').subscribe(data => {
-      this.usersList = data
-    })
-  }
-
-  getTramsList() {
-    this.adminService.getTrams(this.global.baseAPIUrl + '/trams').subscribe(data => {
-      this.tramsList = data
+  getIncidentsList(){
+    this.incidentsServices.getAllIncidents(this.global.baseAPIUrl + '/incidents').subscribe(data => {
+      this.incidentsList = data;
+      console.log (this.incidentsList);
     })
   }
 }

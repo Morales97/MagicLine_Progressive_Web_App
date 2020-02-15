@@ -1,47 +1,23 @@
-<div class ="container">
-  <table class = "table1" *ngIf='usersList'>
+<div class = 'container'>
+  <table width = 100% *ngIf = 'incidentsList'>
     <tr>
-      <th> NOM COORDINADOR </th>
-      <th *ngIf='tramsList'> TRAM </th>
-      <th *ngIf='tramsList'> ESTAT </th>
-      <th> PERMIS </th>
+      <th> TRAM </th>
+      <th> CATEGORY </th>
+      <th> DESCRIPCIO </th>
+      <th> SOLVED </th>
+      <th> COMMENTS </th>
     </tr>
-    <tr *ngFor='let user of usersList'>
-      <td> {{ user.username }} </td>
-      <td> {{ user.tram_num }} </td>
-      <div *ngFor = 'let tram of tramsList'>
-        <td  class = 'open' *ngIf = 'tram.num == user.tram_num && tram.state == "Obert"'> {{ tram.state }} </td>
-        <td  class = 'escombra' *ngIf = 'tram.num == user.tram_num && tram.state == "Escombrant"'> {{ tram.state }} </td>
-        <td  class = 'closed' *ngIf = 'tram.num == user.tram_num && tram.state == "Tancat"'> {{ tram.state }} </td>
+    <tr *ngFor = 'let incident of incidentsList'>
+      <td> {{incident.tram_num}}
+      <td> {{incident.category}} </td>
+      <td> {{incident.description}} </td>
+      <td *ngIf = 'incident.solved' class = "open"> {{incident.solved}} </td>
+      <td *ngIf = '!incident.solved' class = "closed"> {{incident.solved}} </td>
+      <div *ngIf = incident.comments>
+        <tr *ngFor = 'let comm of incident.comments'>
+          <td width = 100%> {{comm.username}}: {{comm.comment}}</td>
+        </tr>
       </div>
-      <td *ngIf = 'user.permissionLevel == 1'> ADMIN </td>
-      <td *ngIf = 'user.permissionLevel == 2048'> COORDINADOR </td>
     </tr>
   </table>
-
-  <div *ngIf ='usersList'>
-    <table class = "table2" *ngFor='let user of usersList'>
-      <tr>
-        <th> NOM COORDINADOR </th>
-        <td> {{user.username}} </td>
-      </tr>
-      <tr *ngIf = 'tramsList'>
-        <th> TRAM </th>
-        <td> {{user.tram_num}} </td>
-      </tr>
-      <tr *ngIf = 'tramsList'>
-        <th> ESTAT </th>
-        <div *ngFor = 'let tram of tramsList'>
-          <td  class = 'open' *ngIf = 'tram.num == user.tram_num && tram.state == "Obert"'> {{ tram.state }} </td>
-          <td  class = 'escombra' *ngIf = 'tram.num == user.tram_num && tram.state == "Escombrant"'> {{ tram.state }} </td>
-          <td  class = 'closed' *ngIf = 'tram.num == user.tram_num && tram.state == "Tancat"'> {{ tram.state }} </td>
-        </div>
-      </tr>
-      <tr>
-        <th> PERMIS </th>
-        <td *ngIf = 'user.permissionLevel == 1'> ADMIN </td>
-        <td *ngIf = 'user.permissionLevel == 2048'> COORDI </td>
-      </tr>
-    </table>
-  </div>
 </div>
