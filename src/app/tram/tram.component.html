@@ -2,17 +2,39 @@
   <br>
 
   <div *ngIf=tram>
-      <p>{{tram.name}} ,#Tram: {{tram.num}}</p>
-      <p> {{tram.state}}</p>
-      <p>És un avituallament? {{tram.avituallament}}</p>
-      <p *ngIf=tram.avituallament>S'ha rebut l'avituallament? {{tram.avituallament_rebut}}</p>
-      <p>S'ha rebut el material? {{tram.material_rebut}}</p>
-      <p>Incidències: {{numIncidents}} <button (click)="navigateToDetails()">Veure detalls</button></p>
+    <p class = 'centre'> <b>TRAM NUMERO: {{tram.num}}</b> ({{tram.name}})</p>
+      <table width = "100%">
+        <tr>
+          <td class = 'obert' *ngIf = 'tram.state == "Obert"'> OBERT </td>
+          <td *ngIf = 'tram.state != "Obert"' (click)="openTram()"> OBERT </td>
+          <td class = 'escombra' *ngIf = 'tram.state == "Escombrant"'> ESCOMBRANT </td>
+          <td *ngIf = 'tram.state != "Escombrant"' (click)="pasEscombra()"> ESCOMBRANT </td>
+          <td class = 'tancat' *ngIf = 'tram.state == "Tancat"'> TANCAT </td>
+          <td *ngIf = 'tram.state != "Tancat"' (click)="closeTram()"> TANCAT </td>
+        </tr>
+      </table>
+      <table width = "100%">
+        <tr>
+          <td class = 'obert' *ngIf='tram.avituallament_rebut' width = "50%"> AVITUALLAMENT </td>
+          <td class = 'tancat' *ngIf = '!tram.avituallament_rebut' width = "50%"> AVITUALLAMENT </td>
+          <td class = 'obert' *ngIf = 'tram.material_rebut'> MATERIAL </td>
+          <td class = 'tancat' *ngIf = '!tram.material_rebut'> MATERIAL </td>
+        </tr>
+      </table>
+
+      <p></p>
+      <p></p>
+      <p> <b> Incidències: </b> {{numIncidents}}</p>
+
+      <!-- <ul *ngIf = 'numIncidents > 0' type="square">
+        <li *ngFor = 'let inc of tram.incidents'> {{inc.category}}
+          <ul type = "square">
+            <li> <b> STATE: </b> {{inc.state}} </li>
+            <li> <b> DESCRIPCIO: </b> {{inc.description}} </li>
+            <li> <b> COMMENT: </b> {{inc.comments.comment}} </li>
+          </ul>
+        </li>
+      </ul>-->
+      {{incidents}}
   </div>
-
-  <button (click)="openTram()" *ngIf=tram>Open tram</button>
-  <button (click)="pasEscombra()" *ngIf=tram>Escombrant tram</button>
-  <button (click)="closeTram()" *ngIf=tram>Close tram</button>
-
-
 </div>
