@@ -18,6 +18,7 @@ import { PushNotificationsModule } from 'ng-push';
 import { MapComponent } from './map/map.component';
 import { IncidentsComponent } from './incidents/incidents.component';
 import { ModalDialogComponent } from './modal-dialog/modal-dialog.component';
+import { CommentComponent } from './comment/comment.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { ModalDialogComponent } from './modal-dialog/modal-dialog.component';
     MapComponent,
     IncidentsComponent,
     ModalDialogComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,

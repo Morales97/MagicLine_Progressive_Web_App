@@ -1,9 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { AuthService, TramService } from '../_services';
+import { AuthService, TramService, IncidentsService } from '../_services';
 import { Globals } from '../app.global';
 import { PushNotificationsService} from 'ng-push';
 import { Router, ActivatedRoute } from '@angular/router';
-import { IncidentsServices } from '../_services';
 
 @Component({
   selector: "app-checks",
@@ -18,13 +17,12 @@ export class TramComponent implements OnInit {
   isAdmin: any;
   tram: any;
   incidents: any;
-  numIncidents: number;
-
+  numIncidents: any;
 
   constructor(
     private authService: AuthService,
     private tramService: TramService,
-    private incidentsServices: IncidentsServices,
+    private incidentsService: IncidentsService,
     private global: Globals,
     private _pushNotifications: PushNotificationsService,
     private router: Router,
@@ -45,8 +43,7 @@ export class TramComponent implements OnInit {
   getTram(tram_num){
     this.tramService.getTram(this.global.baseAPIUrl + '/trams', tram_num).subscribe(data =>{
       this.tram = data
-      this.getIncident();
-      this.numIncidents = this.incidents.length;
+      this.getIncidents();
     })
     console.log(this.tram);
   }
@@ -54,8 +51,7 @@ export class TramComponent implements OnInit {
   getOwnTram(){
     this.tramService.getOwnTram(this.global.baseAPIUrl + '/ownTram').subscribe(data =>{
       this.tram = data
-      this.getIncident();
-      this.numIncidents = this.incidents.length;
+      this.getIncidents();
     })
   }
 
@@ -72,7 +68,7 @@ export class TramComponent implements OnInit {
   }
 
   closeTram(){
-    if (confirm("Estas segur que vols tancar el tram?")) {
+    if (confirm("Estas segur que vols tancar el tram? Seràs redirigit a l'enquesta")) {
       this.tramService.closeTram(this.global.baseAPIUrl + '/closeTram', this.tram.num).subscribe(data => {
         this.tram = data
       });
@@ -82,14 +78,24 @@ export class TramComponent implements OnInit {
     }
   }
 
-  navigateToDetails(){
+  navigateToIncidentForm(){
     this.router.navigate(["/incidents/" + this.tram.num]);
   }
 
-  getIncident(){
-    this.incidentsServices.getIncident(this.global.baseAPIUrl + '/incidentsTram', this.tram.num).subscribe(data => {
+  navigateToCommentForm(inc_id){
+    this.router.navigate(["/comment/" + this.tram.num + '/' + inc_id])
+  }
+
+  getIncidents(){
+    this.incidentsService.getIncident(this.global.baseAPIUrl + '/incidentsTram', this.tram.num).subscribe(data => {
       this.incidents = data;
-      console.log (this.incidents);
+      this.numIncidents = this.incidents.length;
     })
+  }
+
+  solveIncident(inc){
+    console.log(inc._id)
+    this.incidentsService.solveIncident(this.global.baseAPIUrl + '/incidentSolve', inc._id).subscribe()
+    this.getIncidents()
   }
 }

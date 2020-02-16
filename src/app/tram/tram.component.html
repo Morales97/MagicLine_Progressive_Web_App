@@ -1,6 +1,7 @@
 <div class="container">
   <div *ngIf=tram>
-    <p class = 'centre'> <b>TRAM NUMERO: {{tram.num}}</b> ({{tram.name}})</p>
+    <p class = 'centre'> <b>TRAM NUMERO: {{tram.num}}</b> </p>
+    <p class = 'centre'>{{tram.name}}</p>
       <table width = "100%" class = "table1">
         <tr>
           <td class = 'obert' *ngIf = 'tram.state == "Obert"'> OBERT </td>
@@ -41,19 +42,19 @@
 
       <p> </p>
       <p> </p>
-      <p> <b> Incidències: </b> {{numIncidents}} <button class = "butt" (click)='navigateToDetails()'> CREAR INCIDENT </button> </p>
+      <p> <b> Incidències: </b> {{numIncidents}} <button class = "butt" (click)='navigateToIncidentForm()'> CREAR INCIDÈNCIA </button> </p>
 
       <table *ngIf = incidents class ="table1">
         <tr>
-          <th> CATEGORY </th>
-          <th> DESCRIPCIO </th>
-          <th> SOLVED </th>
-          <th> COMMENTS </th>
+          <th> Categoria </th>
+          <th> Descripció </th>
+          <th> Solucionat </th>
+          <th> Comentaris </th>
         </tr>
         <tr *ngFor = 'let inc of incidents' width = '100%'>
           <td> {{inc.category}} </td>
           <td> {{inc.description}} </td>
-          <td (click)='changeState(inc._id)'> {{inc.solved}} </td>
+          <td> {{inc.solved}} </td>
           <div *ngIf = inc.comments>
             <tr *ngFor = 'let comm of inc.comments'>
               <td> {{comm.username}}: {{comm.comment}}</td>
@@ -64,27 +65,26 @@
 
       <table width = "100%" class = 'table2' *ngFor='let incident of incidents'>
         <tr>
-          <th>TRAM</th>
-          <td> {{incident.tram_num}} </td>
-        </tr>
-        <tr>
-          <th> CATEGORY </th>
-          <td> {{incident.category}} </td>
-        </tr>
-        <tr>
-          <th>DESCRIPCIO</th>
+          <th> Descripció</th>
           <td> {{incident.description}} </td>
         </tr>
         <tr>
-          <th> SOLVED </th>
-          <td *ngIf = '!incident.solved'(click)='changeState(incident._id)'> {{ incident.solved }} </td>
-          <td *ngIf = 'incident.solved'> {{ incident.solved }} </td>
+          <th> Categoria </th>
+          <td> {{incident.category}} </td>
         </tr>
         <tr>
-          <td colspan="2"> <b> COMMENTS </b> </td>
+          <td *ngIf = '!incident.solved' class="no-solved"> NO solucionat </td>
+          <td *ngIf = '!incident.solved'>  <button (click)="solveIncident(incident)">Marca com a solucionat</button></td>
+          <td *ngIf = 'incident.solved' colspan="2" class="solved"> Solucionat </td>
+        </tr>
+        <tr>
+          <td colspan="2"> <b> Comentaris: </b> </td>
         </tr>
         <tr *ngFor = 'let comm of incident.comments'>
           <td colspan="2"> {{comm.username}}: {{comm.comment}} </td>
+        </tr>
+        <tr>
+          <td colspan="2"> <button (click)="navigateToCommentForm(incident._id)">Afegeix un comentari</button></td>
         </tr>
       </table>
   </div>

@@ -3,7 +3,7 @@
     <a routerLink="/" href="" class="logo"> <img src="assets/logo_bml.png"> </a>
     <nav>
       <ul>
-        <li><a href="#" routerLink="/">Inici</a></li>
+        <li><a href="#" routerLink="/home">Inici</a></li>
         <li><a href="#" routerLink="/map">Mapa</a></li>
         <li><a href="#" routerLink="/tram" *ngIf="currentUser && !isAdmin">Tram</a></li>
         <li><a href="#" routerLink="/admin" *ngIf="currentUser && isAdmin">Admin</a></li>

@@ -1,24 +1,29 @@
 <div class = "container">
+
+  <p> <button class = "butt" (click)='navigateToTram()'> Torna a Tram </button> </p>
+  
   <h2 class='centre'> NOVA INCIDENCIA </h2>
   <table class = "table1">
     <tr>
-      <th> DESCRIPCIO <th>
-      <td> <input type = "text" type = "wtf"> </td>
+      <td>Descripció:</td>
+    </tr><tr>
+      <td> <textarea name = "descripcio" cols="22" rows="5" #desc></textarea> </td>
     </tr>
   </table>
+  <p></p>
+
   <table>
     <tr>
-      <th rowspan="3"> CATEGORIA: </th>
-      <td> Lleu </td>
-    </tr>
-    <tr>
-      <td> Greu </td>
-    </tr>
-    <tr>
-      <td> Molt Greu </td>
-    </tr>
+      <th > CATEGORIA: </th>
+      <td>
+      <select (change)=updateCategoria($event.target.value)>
+        <option value="Lleu">Lleu</option>
+        <option value="Greu">Greu</option>
+        <option value="Molt greu">Molt greu</option>
+      </select>
+    </td>
   </table>
-  <button (click)='submittedForm()' class = "butt"> SUBMIT </button>
+  <button (click)='submitForm(desc.value)' class = "butt"> SUBMIT </button>
 </div>
 
 <!-- <button (click)="navigateToTram()">Torna a Tram</button> -->

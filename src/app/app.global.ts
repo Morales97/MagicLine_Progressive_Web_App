@@ -12,9 +12,9 @@ export class Globals {
     // HTTP
     // readonly baseAPIUrl: string = 'http://coordinacio.magiclinesjd.org/api';
     // HTTPS
-    readonly baseAPIUrl: string = 'https://coordinacio.magiclinesjd.org/api';
+     readonly baseAPIUrl: string = 'https://coordinacio.magiclinesjd.org/api';
 
 
     // local, HTTPS
-    //readonly baseAPIUrl: string = 'https://localhost:3000';
+    // readonly baseAPIUrl: string = 'https://localhost:3000';
 }

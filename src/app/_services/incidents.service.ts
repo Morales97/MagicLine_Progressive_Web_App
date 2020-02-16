@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 
-export class IncidentsServices {
+export class IncidentsService {
 
     constructor(private http : HttpClient){}
 
@@ -15,15 +15,12 @@ export class IncidentsServices {
         return this.http.get(url)
     }
 
-    solveIncident(url, num_id){
-        this.http.post(url + '/' + num_id.toString(), {})
+    solveIncident(url, _id){
+        return this.http.post<any>(url, {_id})
     }
 
-    pasEscombra(url, num_id){
-        return this.http.post(url + '/' + num_id.toString(), {})
+    submitNewIncident(url, description, category, tram_num){
+        return this.http.post<any>(url, {description, category, tram_num})
     }
 
-    closeTram(url, num_id){
-        return this.http.post(url + '/' + num_id.toString(), {})
-    }
 }

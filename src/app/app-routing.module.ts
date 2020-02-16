@@ -7,6 +7,7 @@ import { TramComponent } from "./tram/tram.component";
 import { AuthGuard } from './_helpers';
 import { MapComponent } from './map/map.component';
 import { IncidentsComponent } from './incidents/incidents.component';
+import { CommentComponent } from './comment/comment.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,11 @@ const routes: Routes = [
   {
     path: "incidents/:num",
     component: IncidentsComponent,
+    canActivate: [AuthGuard]    // accés restringit a usuaris logged in
+  },  
+  {
+    path: "comment/:tramNum/:incId",
+    component: CommentComponent,
     canActivate: [AuthGuard]    // accés restringit a usuaris logged in
   },
 

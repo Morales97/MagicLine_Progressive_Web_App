@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IncidentsServices } from '../_services';
+import { IncidentsService } from '../_services';
 import { Globals } from '../app.global';
 
 @Component({
@@ -12,7 +12,7 @@ export class AdminComponent implements OnInit {
 
   incidentsList: any;
 
-  constructor(private incidentsServices: IncidentsServices, private global : Globals) { }
+  constructor(private incidentsServices: IncidentsService, private global : Globals) { }
 
   ngOnInit() {
     this.getIncidentsList()
