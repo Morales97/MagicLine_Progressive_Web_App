@@ -26,16 +26,18 @@ table, tr, td{
   border: 1px solid black;
   border-collapse: collapse;
 
-
-  .open {
+  .yes{
     background-color: green;
   }
-
-  .escombra {
+  .lleu {
     background-color: yellow;
   }
 
-  .closed {
+  .greu {
+    background-color: orange;
+  }
+
+  .moltGreu {
     background-color: red;
   }
 

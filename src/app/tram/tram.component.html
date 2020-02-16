@@ -52,9 +52,9 @@
           <th> Comentaris </th>
         </tr>
         <tr *ngFor = 'let inc of incidents' width = '100%'>
-          <td *ngIf = 'inc.category == "Lleu"' class = 'obert'> {{inc.category}} </td>
-          <td *ngIf = 'inc.category == "Greu"' class = 'escombra'> {{inc.category}} </td>
-          <td *ngIf = 'inc.category == "Molt greu"' class = 'tancat'> {{inc.category}} </td>
+          <td *ngIf = 'inc.category == "Lleu"' class = 'lleu'> {{inc.category}} </td>
+          <td *ngIf = 'inc.category == "Greu"' class = 'greu'> {{inc.category}} </td>
+          <td *ngIf = 'inc.category == "Molt greu"' class = 'moltGreu'> {{inc.category}} </td>
           <td> {{inc.description}} </td>
           <td> {{inc.solved}} </td>
           <div *ngIf = inc.comments>
@@ -72,9 +72,9 @@
         </tr>
         <tr>
           <th> Categoria </th>
-          <td *ngIf = 'incident.category == "Lleu"' class = 'obert'> {{incident.category}} </td>
-          <td *ngIf = 'incident.category == "Greu"' class = 'escombra'> {{incident.category}} </td>
-          <td *ngIf = 'incident.category == "Molt greu"' class = 'tancat'> {{incident.category}} </td>
+          <td *ngIf = 'incident.category == "Lleu"' class = 'lleu'> {{incident.category}} </td>
+          <td *ngIf = 'incident.category == "Greu"' class = 'greu'> {{incident.category}} </td>
+          <td *ngIf = 'incident.category == "Molt greu"' class = 'moltGreu'> {{incident.category}} </td>
         </tr>
         <tr>
           <td *ngIf = '!incident.solved' class="no-solved"> NO solucionat </td>
