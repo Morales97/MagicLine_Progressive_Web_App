@@ -72,20 +72,12 @@ export class TramComponent implements OnInit {
   }
 
   closeTram(){
-    this.tramService.closeTram(this.global.baseAPIUrl + '/closeTram', this.tram.num).subscribe(data => {
-      this.tram = data
-    });
-    this.notify();
-  }
-
-  notify(){ //our function to be called on click
-    let options = { //set options
-      body: "Tram tancat, fes l'enquesta: https://forms.office.com/Pages/ResponsePage.aspx?id=c78H_RPye0qMTgp1PpeBq_E6ufrcqs9Ol2w-QD6b-oFUNlJVOE1RM0VHTVNNMlNERlg4SkdPTDhIRi4u",
+    if (confirm("Estas segur que vols tancar el tram?")) {
+      this.tramService.closeTram(this.global.baseAPIUrl + '/closeTram', this.tram.num).subscribe(data => {
+        this.tram = data
+      });
+      alert("Fes l'enquesta: https://forms.office.com/Pages/ResponsePage.aspx?id=c78H_RPye0qMTgp1PpeBq_E6ufrcqs9Ol2w-QD6b-oFUNlJVOE1RM0VHTVNNMlNERlg4SkdPTDhIRi4u");
     }
-     this._pushNotifications.create('CLOSED', options).subscribe( //creates a notification
-        res => console.log(res),
-        err => console.log(err)
-    );
   }
 
   navigateToDetails(){
@@ -97,11 +89,5 @@ export class TramComponent implements OnInit {
       this.incidents = data;
       console.log (this.incidents);
     })
-  }
-
-  changeState(inc_id){
-    console.log (inc_id);
-    this.incidentsServices.solveIncident(this.global.baseAPIUrl + '/incidentSolve', inc_id)
-    this.incidents = this.getIncident();
   }
 }

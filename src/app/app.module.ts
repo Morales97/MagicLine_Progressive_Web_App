@@ -17,6 +17,7 @@ import { fakeBackendProvider, JwtInterceptor, ErrorInterceptor } from './_helper
 import { PushNotificationsModule } from 'ng-push';
 import { MapComponent } from './map/map.component';
 import { IncidentsComponent } from './incidents/incidents.component';
+import { ModalDialogComponent } from './modal-dialog/modal-dialog.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { IncidentsComponent } from './incidents/incidents.component';
     TramComponent,
     MapComponent,
     IncidentsComponent,
+    ModalDialogComponent,
   ],
   imports: [
     BrowserModule,
