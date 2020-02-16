@@ -7,11 +7,8 @@ import "leaflet/dist/images/marker-icon-2x.png"
 
 var LeafMarker = L.Icon.extend({
   options: {
-      shadowUrl: 'icon.png',
       iconSize:     [20, 50],
-      shadowSize:   [30, 64],
       iconAnchor:   [22, 94],
-      shadowAnchor: [4, 62],
       popupAnchor:  [-3, -76]
   }
 });
@@ -72,8 +69,7 @@ export class MapComponent implements OnInit {
       }
     }
   }
-
-
+  
   getTramsList() {
     this.adminService.getTrams(this.global.baseAPIUrl + '/trams').subscribe(data => {
       this.tramsList = data;

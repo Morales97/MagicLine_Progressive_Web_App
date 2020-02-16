@@ -15,9 +15,11 @@
       <td  class = 'open' *ngIf = 'tram.state == "Obert"'> {{ tram.state }} </td>
       <td  class = 'escombra' *ngIf = 'tram.state == "Escombrant"'> {{ tram.state }} </td>
       <td  class = 'closed' *ngIf = 'tram.state == "Tancat"'> {{ tram.state }} </td>
-      <td> {{ tram.material_rebut }} </td>
-      <td *ngIf = 'tram.avituallament'> {{ tram.avituallament_rebut }} </td>
-      <td *ngIf = '!tram.avituallament'> {{ tram.avituallament}} </td>
+      <td *ngIf = 'tram.material_rebut' class = 'yes'> {{ tram.material_rebut }} </td>
+      <td *ngIf = '!tram.material_rebut' class = 'no'> {{ tram.material_rebut }} </td>
+      <td *ngIf = 'tram.avituallament && tram.avituallament_rebut' class = 'yes'> {{ tram.avituallament_rebut }} </td>
+      <td *ngIf = 'tram.avituallament && !tram.avituallament_rebut' class = 'no'> {{ tram.avituallament_rebut }} </td>
+      <td *ngIf = '!tram.avituallament'> –– </td>
       <td > {{ tram.incidents.length}} </td>
       <td *ngIf = 'isAdmin '><button class = "change" (click)="navigateToTram(tram.num)">Veure</button></td>
     </tr>
