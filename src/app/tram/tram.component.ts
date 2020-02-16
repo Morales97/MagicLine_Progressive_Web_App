@@ -99,9 +99,9 @@ export class TramComponent implements OnInit {
     })
   }
 
-  changeState(inc_id: String){
+  changeState(inc_id){
     console.log (inc_id);
-    this.incidentsServices.solveIncident(this.global.baseAPIUrl + '/incidentSolve', inc_id);
-    this.getIncident();
+    this.incidentsServices.solveIncident(this.global.baseAPIUrl + '/incidentSolve', inc_id)
+    this.incidents = this.getIncident();
   }
 }

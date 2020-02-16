@@ -16,7 +16,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { fakeBackendProvider, JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { PushNotificationsModule } from 'ng-push';
 import { MapComponent } from './map/map.component';
-import { IncidentsComponent } from './incidents/incidents.component'
+import { IncidentsComponent } from './incidents/incidents.component';
 
 
 @NgModule({
@@ -27,7 +27,7 @@ import { IncidentsComponent } from './incidents/incidents.component'
     AdminComponent,
     TramComponent,
     MapComponent,
-    IncidentsComponent
+    IncidentsComponent,
   ],
   imports: [
     BrowserModule,
