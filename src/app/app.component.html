@@ -7,16 +7,18 @@
         <li><a href="#" routerLink="/map">Mapa</a></li>
         <li><a href="#" routerLink="/tram" *ngIf="currentUser && !isAdmin">Tram</a></li>
         <li><a href="#" routerLink="/admin" *ngIf="currentUser && isAdmin">Admin</a></li>
+        <li><a href="#" routerLink="/events" *ngIf="currentUser && isAdmin"> Events </a></li>
         <li><a href="#" routerLink="/login" *ngIf="!currentUser">Log in</a></li>
         <li><a href="#" routerLink="/login" *ngIf="currentUser" (click)="logout()">Log out</a></li>
         <li *ngIf="currentUser"><a><strong>{{ currentUser.username }} </strong></a></li>
       </ul>
-      
+
       <select (change)="onNavigate($event.target.value)">
         <option value ="/"> Inici </option>
         <option value ="/map"> Mapa </option>
         <option value ="/tram" *ngIf="currentUser && !isAdmin"> Tram </option>
         <option value ="/admin" *ngIf="currentUser && isAdmin"> Admin </option>
+        <option value ="/events" *ngIf ="currentUser && isAdmin"> Events </option>
         <option value="/login" *ngIf="!currentUser"> Log In </option>
         <option value="logout" *ngIf="currentUser"> Log Out </option>
       </select>

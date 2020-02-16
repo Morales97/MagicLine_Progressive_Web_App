@@ -6,13 +6,13 @@ import { HttpClient } from '@angular/common/http';
 export class TramService {
 
     constructor(private http : HttpClient){}
-    
+
     getTram(url, num){
-        return this.http.get(url + '/' + num.toString(), {})   
+        return this.http.get(url + '/' + num.toString(), {})
     }
 
     getOwnTram(url){
-        return this.http.get(url)   
+        return this.http.get(url)
     }
 
     openTram(url, num_id){
@@ -25,5 +25,9 @@ export class TramService {
 
     closeTram(url, num_id){
         return this.http.post(url + '/' + num_id.toString(), {})
+    }
+
+    getEvents(url){
+        return this.http.get(url)
     }
 }

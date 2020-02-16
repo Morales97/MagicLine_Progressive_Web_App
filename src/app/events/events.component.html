@@ -1,0 +1,35 @@
+<div class = 'container'>
+  <table *ngIf = 'eventsList' class = 'table1' width = "100%">
+    <tr>
+      <th> TRAM </th>
+      <th> USUARI </th>
+      <th> DATA </th>
+      <th> DESCRIPCIO </th>
+    </tr>
+    <tr *ngFor = 'let event of eventsList'>
+      <td> {{ event.tram_num }} </td>
+      <td> {{ event.username }} </td>
+      <td> {{ event.date }} </td>
+      <td> {{ event.description }} </td>
+    </tr>
+  </table>
+
+    <table class = 'table2' *ngFor = 'let event of eventsList'>
+      <tr>
+        <th> TRAM </th>
+        <td> {{ event.tram_num }} </td>
+      </tr>
+      <tr>
+        <th> USUARI </th>
+        <td> {{ event.username }} </td>
+      </tr>
+      <tr>
+        <th> DATA </th>
+        <td> {{ event.date }} </td>
+      </tr>
+      <tr>
+        <th> DESCRIPCIO </th>
+        <td> {{ event.description }} </td>
+      </tr>
+    </table>
+</div>

@@ -43,12 +43,13 @@
       </tr>
       <tr>
         <th> MATERIAL? </th>
-        <td> {{ tram.material_rebut }} </td>
+        <td *ngIf = tram.material_rebut class = 'yes'> {{ tram.material_rebut }} </td>
+        <td *ngIf = !tram.material_rebut class = 'no'> {{ tram.material_rebut }} </td>
       </tr>
       <tr>
-        <th> AVIT.? </th>
-        <td *ngIf = 'tram.avituallament'> {{ tram.avituallament_rebut }} </td>
-        <td *ngIf = '!tram.avituallament'> {{ tram.avituallament}} </td>
+        <th *ngIf = tram.avituallament > AVIT.? </th>
+        <td *ngIf = 'tram.avituallament && tram.avituallament_rebut' class = 'yes'> {{ tram.avituallament_rebut }} </td>
+        <td *ngIf = 'tram.avituallament && !tram.avituallament_rebut' class = 'no'> {{ tram.avituallament_rebut }} </td>
       </tr>
       <tr>
         <th> INCIDÈNCIES </th>

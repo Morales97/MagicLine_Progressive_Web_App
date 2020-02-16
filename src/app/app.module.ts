@@ -19,6 +19,7 @@ import { MapComponent } from './map/map.component';
 import { IncidentsComponent } from './incidents/incidents.component';
 import { ModalDialogComponent } from './modal-dialog/modal-dialog.component';
 import { CommentComponent } from './comment/comment.component';
+import { EventsComponent } from './events/events.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { CommentComponent } from './comment/comment.component';
     IncidentsComponent,
     ModalDialogComponent,
     CommentComponent,
+    EventsComponent,
   ],
   imports: [
     BrowserModule,
