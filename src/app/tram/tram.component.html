@@ -12,8 +12,8 @@
           <td *ngIf = 'tram.state != "Tancat"' (click)="closeTram()"> TANCAT </td>
           <td class = 'obert' *ngIf='tram.avituallament && tram.avituallament_rebut' width = "50%"> AVITUALLAMENT </td>
           <td class = 'tancat' *ngIf = 'tram.avituallament && !tram.avituallament_rebut' width = "50%"> AVITUALLAMENT </td>
-          <td class = 'obert' *ngIf = 'tram.material_rebut'> MATERIAL </td>
-          <td class = 'tancat' *ngIf = '!tram.material_rebut'> MATERIAL </td>
+          <td class = 'obert' *ngIf = 'tram.material_rebut' (click)='changeMat()'> MATERIAL </td>
+          <td class = 'tancat' *ngIf = '!tram.material_rebut' (click)='changeMat()'> MATERIAL </td>
         </tr>
       </table>
 
@@ -35,8 +35,8 @@
           <td class = 'tancat' *ngIf = 'tram.avituallament && !tram.avituallament_rebut' width = "50%"> AVITUALLAMENT </td>
         </tr>
         <tr>
-          <td class = 'obert' *ngIf = 'tram.material_rebut'> MATERIAL </td>
-          <td class = 'tancat' *ngIf = '!tram.material_rebut'> MATERIAL </td>
+          <td class = 'obert' *ngIf = 'tram.material_rebut' (click)='changeMat()'> MATERIAL </td>
+          <td class = 'tancat' *ngIf = '!tram.material_rebut' (click)='changeMat()'> MATERIAL </td>
         </tr>
       </table>
 

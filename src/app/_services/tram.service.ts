@@ -30,4 +30,12 @@ export class TramService {
     getEvents(url){
         return this.http.get(url)
     }
+
+    changeMaterial(url, num_id){
+        return this.http.post(url + '/' + num_id.toString(), {})
+    }
+
+    changeAvituallament(url, num_id){
+        return this.http.post(url + '/' + num_id.toString(), {})
+    }
 }

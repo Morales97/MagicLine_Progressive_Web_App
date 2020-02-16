@@ -98,4 +98,16 @@ export class TramComponent implements OnInit {
     this.incidentsService.solveIncident(this.global.baseAPIUrl + '/incidentSolve', inc._id).subscribe()
     this.getIncidents()
   }
+
+  changeMat(){
+    this.tramService.changeMaterial(this.global.baseAPIUrl + '/material', this.tram.num).subscribe(data => {
+      this.tram = data
+    });
+  }
+
+  changeAvit(){
+    this.tramService.changeAvituallament(this.global.baseAPIUrl + '/avituallament', this.tram.num).subscribe(data => {
+      this.tram = data
+    });
+  }
 }
