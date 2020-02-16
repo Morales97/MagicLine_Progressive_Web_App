@@ -10,7 +10,7 @@
       <td> {{incident.tram_num}}
       <td *ngIf = 'incident.category == "Lleu"' class = 'open'> {{incident.category}} </td>
       <td *ngIf = 'incident.category == "Greu"' class = 'escombra'> {{incident.category}} </td>
-      <td *ngIf = 'incident.category == "Molt Greu"' class = 'closed'> {{incident.category}} </td>
+      <td *ngIf = 'incident.category == "Molt greu"' class = 'closed'> {{incident.category}} </td>
       <td> {{incident.description}} </td>
       <td *ngIf = 'incident.solved' class = 'open'> TRUE </td>
       <td *ngIf = '!incident.solved' class = 'closed'> FALSE </td>
