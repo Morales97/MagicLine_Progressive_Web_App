@@ -2,7 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { Globals } from '../app.global';
 import { AdminService } from '../_services';
 import * as L from 'leaflet';
+import "leaflet/dist/images/marker-shadow.png";
+import "leaflet/dist/images/marker-icon-2x.png"
 
+var LeafMarker = L.Icon.extend({
+  options: {
+      shadowUrl: 'icon.png',
+      iconSize:     [20, 50],
+      shadowSize:   [30, 64],
+      iconAnchor:   [22, 94],
+      shadowAnchor: [4, 62],
+      popupAnchor:  [-3, -76]
+  }
+});
+
+var redMarker = new LeafMarker ({iconUrl: 'assets/red-marker.png'})
+var greenMarker = new LeafMarker ({iconUrl: 'assets/green-marker.png'})
 
 @Component({
   selector: 'app-map',
@@ -12,6 +27,7 @@ import * as L from 'leaflet';
 })
 
 export class MapComponent implements OnInit {
+
 
   tramsList: any;
 
@@ -29,12 +45,6 @@ export class MapComponent implements OnInit {
       id: 'mapbox/streets-v11',
       accessToken: 'pk.eyJ1IjoiZGFuaS1tb3JhbGVzIiwiYSI6ImNrNmo5ZW9lYjA2d2czbHAxcmJraGExajYifQ.zPNk-ypzqGXhGtHjt0DofQ'
     }).addTo(map);
-
-    /*  // Mapa que utilitza la free tile "Open Street Map", per si acaba el free tier de Mapbox
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-    */
 
     for (let tram of this.tramsList){
 
@@ -56,9 +66,9 @@ export class MapComponent implements OnInit {
       line.bindPopup("<b>" + tram.num + " - " + tram.name + "</b><br>" + tram.state)
 
       if (tram.avituallament){
-        new L.marker(tram.pointList[0], {
-          color: 'red'
-        }).addTo(map)
+        if (!tram.avituallament_rebut) var marker = L.marker(tram.pointList[0], {icon: redMarker}).addTo(map);
+        if (tram.avituallament_rebut) var marker = L.marker(tram.pointList[0], {icon: greenMarker}).addTo(map);
+        marker.bindPopup("<b>" + tram.num + " - " + tram.name + "</b><br>" + tram.avituallament_rebut)
       }
     }
   }
