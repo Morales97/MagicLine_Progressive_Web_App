@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService, TramService, IncidentsService } from '../_services';
 import { Globals } from '../app.global';
-import { PushNotificationsService} from 'ng-push';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -24,7 +23,6 @@ export class TramComponent implements OnInit {
     private tramService: TramService,
     private incidentsService: IncidentsService,
     private global: Globals,
-    private _pushNotifications: PushNotificationsService,
     private router: Router,
     private activatedRoute: ActivatedRoute
     ) {
@@ -99,14 +97,14 @@ export class TramComponent implements OnInit {
     this.getIncidents()
   }
 
-  changeMat(){
-    this.tramService.changeMaterial(this.global.baseAPIUrl + '/material', this.tram.num).subscribe(data => {
+  changeMaterial(new_state){
+    this.tramService.changeMaterial(this.global.baseAPIUrl + '/material', this.tram.num, new_state).subscribe(data => {
       this.tram = data
     });
   }
 
-  changeAvit(){
-    this.tramService.changeAvituallament(this.global.baseAPIUrl + '/avituallament', this.tram.num).subscribe(data => {
+  changeAvit(new_state){
+    this.tramService.changeAvituallament(this.global.baseAPIUrl + '/avituallament', this.tram.num, new_state).subscribe(data => {
       this.tram = data
     });
   }

@@ -31,11 +31,11 @@ export class TramService {
         return this.http.get(url)
     }
 
-    changeMaterial(url, num_id){
-        return this.http.post(url + '/' + num_id.toString(), {})
+    changeAvituallament(url, tram_num, avituallament_rebut){
+        return this.http.post(url, {tram_num, avituallament_rebut})
     }
 
-    changeAvituallament(url, num_id){
-        return this.http.post(url + '/' + num_id.toString(), {})
+    changeMaterial(url, tram_num, material_rebut){
+        return this.http.post(url, {tram_num, material_rebut})
     }
 }

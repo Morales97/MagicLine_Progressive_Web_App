@@ -4,16 +4,17 @@
     <p class = 'centre'>{{tram.name}}</p>
       <table width = "100%" class = "table1">
         <tr>
-          <td class = 'obert' *ngIf = 'tram.state == "Obert"'> OBERT </td>
-          <td *ngIf = 'tram.state != "Obert"' (click)="openTram()"> OBERT </td>
-          <td class = 'escombra' *ngIf = 'tram.state == "Escombrant"'> ESCOMBRANT </td>
-          <td *ngIf = 'tram.state != "Escombrant"' (click)="pasEscombra()"> ESCOMBRANT </td>
-          <td class = 'tancat' *ngIf = 'tram.state == "Tancat"'> TANCAT </td>
-          <td *ngIf = 'tram.state != "Tancat"' (click)="closeTram()"> TANCAT </td>
-          <td class = 'obert' *ngIf='tram.avituallament && tram.avituallament_rebut' width = "50%"> AVITUALLAMENT </td>
-          <td class = 'tancat' *ngIf = 'tram.avituallament && !tram.avituallament_rebut' width = "50%"> AVITUALLAMENT </td>
-          <td class = 'obert' *ngIf = 'tram.material_rebut' (click)='changeMat()'> MATERIAL </td>
-          <td class = 'tancat' *ngIf = '!tram.material_rebut' (click)='changeMat()'> MATERIAL </td>
+          <td class = 'obert' *ngIf = 'tram.state == "Obert"' width="33%"> OBERT </td>
+          <td *ngIf = 'tram.state != "Obert"' (click)="openTram()" width="33%"> OBERT </td>
+          <td class = 'escombra' *ngIf = 'tram.state == "Escombrant"' width="33%"> ESCOMBRANT </td>
+          <td *ngIf = 'tram.state != "Escombrant"' (click)="pasEscombra()" width="33%"> ESCOMBRANT </td>
+          <td class = 'tancat' *ngIf = 'tram.state == "Tancat"' width="33%"> TANCAT </td>
+          <td *ngIf = 'tram.state != "Tancat"' (click)="closeTram()" width="33%"> TANCAT </td>
+        </tr><p></p><tr>
+          <td class = 'obert' *ngIf='tram.avituallament && tram.avituallament_rebut' (click)="changeAvit(false)"> AVITUALLAMENT REBUT</td>
+          <td class = 'tancat' *ngIf = 'tram.avituallament && !tram.avituallament_rebut' (click)="changeAvit(true)"> AVITUALLAMENT NO REBUT </td>
+          <td class = 'obert' *ngIf = 'tram.material_rebut' (click)='changeMaterial(false)'> MATERIAL REBUT</td>
+          <td class = 'tancat' *ngIf = '!tram.material_rebut' (click)='changeMaterial(true)'> MATERIAL NO REBUT</td>
         </tr>
       </table>
 
@@ -30,16 +31,19 @@
           <td class = 'tancat' *ngIf = 'tram.state == "Tancat"'> TANCAT </td>
           <td *ngIf = 'tram.state != "Tancat"' (click)="closeTram()"> TANCAT </td>
         </tr>
+        <p></p>
         <tr>
-          <td class = 'obert' *ngIf='tram.avituallament && tram.avituallament_rebut' width = "50%"> AVITUALLAMENT </td>
-          <td class = 'tancat' *ngIf = 'tram.avituallament && !tram.avituallament_rebut' width = "50%"> AVITUALLAMENT </td>
+          <td class = 'obert' *ngIf='tram.avituallament && tram.avituallament_rebut' (click)="changeAvit(false)"> AVIT. REBUT </td>
+          <td class = 'tancat' *ngIf = 'tram.avituallament && !tram.avituallament_rebut' (click)="changeAvit(true)"> AVIT. NO REBUT </td>
         </tr>
+        <p></p>
         <tr>
-          <td class = 'obert' *ngIf = 'tram.material_rebut' (click)='changeMat()'> MATERIAL </td>
-          <td class = 'tancat' *ngIf = '!tram.material_rebut' (click)='changeMat()'> MATERIAL </td>
+          <td class = 'obert' *ngIf = 'tram.material_rebut' (click)='changeMaterial(false)'> MATERIAL REBUT </td>
+          <td class = 'tancat' *ngIf = '!tram.material_rebut' (click)='changeMaterial(true)'> MATERIAL NO REBUT</td>
         </tr>
       </table>
 
+      <p> </p>
       <p> </p>
       <p> </p>
       <p> <b> Incidències: </b> {{numIncidents}} <button class = "butt" (click)='navigateToIncidentForm()'> CREAR INCIDÈNCIA </button> </p>
