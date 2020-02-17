@@ -15,6 +15,8 @@
           <td class = 'tancat' *ngIf = 'tram.avituallament && !tram.avituallament_rebut' (click)="changeAvit(true)"> AVITUALLAMENT NO REBUT </td>
           <td class = 'obert' *ngIf = 'tram.material_rebut' (click)='changeMaterial(false)'> MATERIAL REBUT</td>
           <td class = 'tancat' *ngIf = '!tram.material_rebut' (click)='changeMaterial(true)'> MATERIAL NO REBUT</td>
+          <td class = 'obert' *ngIf = 'tram.picnic_rebut && tram.num != (1 || 2)' (click)='changePicnic(false)'> PICNIC REBUT</td>
+          <td class = 'tancat' *ngIf = '!tram.picnic_rebut && tram.num != (1 || 2)' (click)='changePicnic(true)'> PICNIC NO REBUT</td>
         </tr>
       </table>
 
@@ -40,6 +42,11 @@
         <tr>
           <td class = 'obert' *ngIf = 'tram.material_rebut' (click)='changeMaterial(false)'> MATERIAL REBUT </td>
           <td class = 'tancat' *ngIf = '!tram.material_rebut' (click)='changeMaterial(true)'> MATERIAL NO REBUT</td>
+        </tr>
+        <p></p>
+        <tr>
+          <td class = 'obert' *ngIf = 'tram.picnic_rebut && tram.num != (1 || 2)' (click)='changePicnic(false)'> PICNIC REBUT </td>
+          <td class = 'tancat' *ngIf = '!tram.picnic_rebut && tram.num != (1 || 2)' (click)='changePicnic(true)'> PICNIC NO REBUT</td>
         </tr>
       </table>
 

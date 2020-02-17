@@ -6,6 +6,7 @@
       <th> ESTAT </th>
       <th> MATERIAL REBUT?</th>
       <th> AVIT. REBUT? </th>
+      <th> PICNIC REBUT? </th>
       <th> INCIDÈNCIES </th>
       <th *ngIf = 'isAdmin'> ADMIN ONLY</th>
     </tr>
@@ -20,7 +21,10 @@
       <td *ngIf = 'tram.avituallament && tram.avituallament_rebut' class = 'yes'> {{ tram.avituallament_rebut }} </td>
       <td *ngIf = 'tram.avituallament && !tram.avituallament_rebut' class = 'no'> {{ tram.avituallament_rebut }} </td>
       <td *ngIf = '!tram.avituallament'> –– </td>
-      <td > {{ tram.incidents.length}} </td>
+      <td *ngIf = 'tram.num > 2 && tram.picnic_rebut' class = 'yes'> {{ tram.picnic_rebut }} </td>
+      <td *ngIf = 'tram.num > 2 && !tram.picnic_rebut' class = 'no'> {{ tram.picnic_rebut }} </td>
+      <td *ngIf = '3 > tram.num'> –– </td>
+       <td > {{ tram.incidents.length}} </td>
       <td *ngIf = 'isAdmin '><button class = "change" (click)="navigateToTram(tram.num)">Veure</button></td>
     </tr>
   </table>
@@ -50,6 +54,11 @@
         <th *ngIf = tram.avituallament > AVIT.? </th>
         <td *ngIf = 'tram.avituallament && tram.avituallament_rebut' class = 'yes'> {{ tram.avituallament_rebut }} </td>
         <td *ngIf = 'tram.avituallament && !tram.avituallament_rebut' class = 'no'> {{ tram.avituallament_rebut }} </td>
+      </tr>
+      <tr>
+        <th *ngIf = 'tram.num > 2' > PICNIC? </th>
+        <td *ngIf = 'tram.num > 2 && tram.picnic_rebut' class = 'yes'> {{ tram.picnic_rebut }} </td>
+        <td *ngIf = 'tram.num > 2 && !tram.picnic_rebut' class = 'no'> {{ tram.picnic_rebut }} </td>
       </tr>
       <tr>
         <th> INCIDÈNCIES </th>

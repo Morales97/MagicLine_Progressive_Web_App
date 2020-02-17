@@ -2,19 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Globals } from '../app.global';
 import { AdminService } from '../_services';
 import * as L from 'leaflet';
-import "leaflet/dist/images/marker-shadow.png";
-import "leaflet/dist/images/marker-icon-2x.png"
-
-var LeafMarker = L.Icon.extend({
-  options: {
-      iconSize:     [20, 50],
-      iconAnchor:   [22, 94],
-      popupAnchor:  [-3, -76]
-  }
-});
-
-var redMarker = new LeafMarker ({iconUrl: 'assets/red-marker.png'})
-var greenMarker = new LeafMarker ({iconUrl: 'assets/green-marker.png'})
 
 @Component({
   selector: 'app-map',
@@ -35,7 +22,7 @@ export class MapComponent implements OnInit {
 
   }
 
-  afterInit(){
+  afterInit(avituallaments){
     var map = L.map('map').setView([41.3887,2.1589], 13);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -58,14 +45,48 @@ export class MapComponent implements OnInit {
         color: color_state,
         weight: 5,
         opacity: 0.8,
-        smoothFactor: 1
+        smoothFactor: 0.5
       }).addTo(map);
       line.bindPopup("<b>" + tram.num + " - " + tram.name + "</b><br>" + tram.state)
 
-      if (tram.avituallament){
-        if (!tram.avituallament_rebut) var marker = L.marker(tram.pointList[0], {icon: redMarker}).addTo(map);
-        if (tram.avituallament_rebut) var marker = L.marker(tram.pointList[0], {icon: greenMarker}).addTo(map);
-        marker.bindPopup("<b>" + tram.num + " - " + tram.name + "</b><br>" + tram.avituallament_rebut)
+      var greenIcon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+
+      var redIcon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+
+      if(avituallaments){
+        if (tram.avituallament){
+          if (!tram.avituallament_rebut) {
+            var marker = new L.marker(tram.pointList[0], {icon: redIcon}).addTo(map);
+            marker.bindPopup("<b>" + tram.num + " - " + tram.name + "</b><br>Avituallament no rebut")
+          }
+          if (tram.avituallament_rebut) { 
+            var marker = new L.marker(tram.pointList[0], {icon: greenIcon}).addTo(map);
+            marker.bindPopup("<b>" + tram.num + " - " + tram.name + "</b><br>Avituallament rebut!")
+          }
+        }
+      } else {
+        if (!tram.material_rebut) {
+          var marker = new L.marker(tram.pointList[0], {icon: redIcon}).addTo(map);
+          marker.bindPopup("<b>" + tram.num + " - " + tram.name + "</b><br>Material no rebut")
+        }
+        if (tram.material_rebut) { 
+          var marker = new L.marker(tram.pointList[0], {icon: greenIcon}).addTo(map);
+          marker.bindPopup("<b>" + tram.num + " - " + tram.name + "</b><br>Material rebut!")
+        }
       }
     }
   }
@@ -73,7 +94,7 @@ export class MapComponent implements OnInit {
   getTramsList() {
     this.adminService.getTrams(this.global.baseAPIUrl + '/trams').subscribe(data => {
       this.tramsList = data;
-      this.afterInit()
+      this.afterInit(false)
     })
   }
 }

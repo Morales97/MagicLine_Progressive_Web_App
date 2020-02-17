@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { IncidentsService } from '../_services';
+import { IncidentsService, ExportService } from '../_services';
 import { Globals } from '../app.global';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-admin',
@@ -12,7 +14,12 @@ export class AdminComponent implements OnInit {
 
   incidentsList: any;
 
-  constructor(private incidentsServices: IncidentsService, private global : Globals) { }
+  constructor(
+    private incidentsServices: IncidentsService, 
+    private global : Globals,
+    private router: Router,
+    private exportService: ExportService, 
+    ) { }
 
   ngOnInit() {
     this.getIncidentsList()
@@ -24,4 +31,13 @@ export class AdminComponent implements OnInit {
       console.log (this.incidentsList);
     })
   }
+
+  navigateToTram(tram_num){
+    this.router.navigate(["/tram/" + tram_num]);
+  }
+
+  exportIncidents(){
+    this.exportService.exportExcel(this.incidentsList, "Incidències_MagicLine")
+  }
+
 }

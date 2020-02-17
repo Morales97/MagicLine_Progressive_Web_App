@@ -1,3 +1,8 @@
+
+<div class="container3">
+  <p></p>
+    <button (click)="exportIncidents()">Exporta a Excel</button>
+    
   <table class = 'table1' *ngIf = 'incidentsList'>
     <tr>
       <th> Tram </th>
@@ -5,6 +10,7 @@
       <th width="50%"> Descripció </th>
       <th> Solucionat </th>
       <th> Comentaris </th>
+      <th> Veure tram</th>
     </tr>
     <tr *ngFor = 'let incident of incidentsList'>
       <td> {{incident.tram_num}}
@@ -19,7 +25,9 @@
           <td > {{comm.username}}: {{comm.comment}}</td>
         </tr>
       </div>
+      <td><button (click)="navigateToTram(incident.tram_num)">Ves-hi</button></td>
     </tr>
+      
   </table>
 
   <table width = "100%" class = 'table2' *ngFor='let incident of incidentsList'>
@@ -49,3 +57,4 @@
       <td colspan="2"> {{comm.username}}: {{comm.comment}} </td>
     </tr>
   </table>
+</div>

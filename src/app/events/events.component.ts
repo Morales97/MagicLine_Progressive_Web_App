@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService, TramService} from '../_services';
+import { AuthService, TramService, ExportService} from '../_services';
 import { Globals } from '../app.global';
 
 @Component({
@@ -12,7 +12,10 @@ export class EventsComponent implements OnInit {
 
   eventsList: any;
 
-  constructor(private tramService: TramService, private global: Globals) { }
+  constructor(
+    private tramService: TramService, 
+    private exportService: ExportService, 
+    private global: Globals) { }
 
   ngOnInit() {
     this.getAllEvents();
@@ -22,5 +25,9 @@ export class EventsComponent implements OnInit {
     this.tramService.getEvents(this.global.baseAPIUrl + '/events').subscribe(data => {
       this.eventsList = data;
     });
+  }
+
+  exportEvents(){
+    this.exportService.exportExcel(this.eventsList, "Registre_Events_MagicLine")
   }
 }

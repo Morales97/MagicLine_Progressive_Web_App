@@ -38,4 +38,8 @@ export class TramService {
     changeMaterial(url, tram_num, material_rebut){
         return this.http.post(url, {tram_num, material_rebut})
     }
+
+    changePicnic(url, tram_num, picnic_rebut){
+        return this.http.post(url, {tram_num, picnic_rebut})
+    }
 }

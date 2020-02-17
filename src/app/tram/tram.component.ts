@@ -107,4 +107,10 @@ export class TramComponent implements OnInit {
       this.tram = data
     });
   }
+
+  changePicnic(new_state){
+    this.tramService.changePicnic(this.global.baseAPIUrl + '/picnic', this.tram.num, new_state).subscribe(data => {
+      this.tram = data
+    });
+  }
 }
