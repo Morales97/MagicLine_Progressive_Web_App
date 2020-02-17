@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { IncidentsService } from '../_services';
+import { Globals } from '../app.global';
+
 
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',
-  styleUrls: ['./comment.component.scss']
+  styleUrls: ['./comment.component.scss'],
+  providers: [ Globals ]
 })
 export class CommentComponent implements OnInit {
 
@@ -13,7 +17,10 @@ export class CommentComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private incidentsService: IncidentsService,
+    private global: Globals,
+
   ) { }
 
   ngOnInit() {
@@ -25,6 +32,11 @@ export class CommentComponent implements OnInit {
 
   navigateToTram(){
     this.router.navigate(["/tram/" + this.tram_num]);
+  }
+
+  submitComment(comment){
+    this.incidentsService.submitComment(this.global.baseAPIUrl + '/incidentComment', this.inc_id, comment).subscribe()
+    this.navigateToTram()
   }
 
 }

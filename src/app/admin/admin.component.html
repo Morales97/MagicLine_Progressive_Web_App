@@ -1,10 +1,10 @@
   <table class = 'table1' *ngIf = 'incidentsList'>
     <tr>
-      <th> TRAM </th>
-      <th> CATEGORY </th>
-      <th> DESCRIPCIO </th>
-      <th> SOLVED </th>
-      <th> COMMENTS </th>
+      <th> Tram </th>
+      <th> Categoria </th>
+      <th width="50%"> Descripció </th>
+      <th> Solucionat </th>
+      <th> Comentaris </th>
     </tr>
     <tr *ngFor = 'let incident of incidentsList'>
       <td> {{incident.tram_num}}

@@ -23,4 +23,8 @@ export class IncidentsService {
         return this.http.post<any>(url, {description, category, tram_num})
     }
 
+    submitComment(url, _id, comment){
+        return this.http.post<any>(url, {_id, comment})
+    }
+
 }

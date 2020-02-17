@@ -92,7 +92,6 @@ export class TramComponent implements OnInit {
   }
 
   solveIncident(inc){
-    console.log(inc._id)
     this.incidentsService.solveIncident(this.global.baseAPIUrl + '/incidentSolve', inc._id).subscribe()
     this.getIncidents()
   }
