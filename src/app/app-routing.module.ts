@@ -8,7 +8,9 @@ import { AuthGuard } from './_helpers';
 import { MapComponent } from './map/map.component';
 import { IncidentsComponent } from './incidents/incidents.component';
 import { CommentComponent } from './comment/comment.component';
-import { EventsComponent } from './events/events.component'
+import { EventsComponent } from './events/events.component';
+import { ResetComponent } from './reset/reset.component';
+
 
 const routes: Routes = [
   {
@@ -51,6 +53,11 @@ const routes: Routes = [
   {
     path:"events",
     component: EventsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:"reset",
+    component: ResetComponent,
     canActivate: [AuthGuard]
   },
 

@@ -20,6 +20,7 @@ import { IncidentsComponent } from './incidents/incidents.component';
 import { ModalDialogComponent } from './modal-dialog/modal-dialog.component';
 import { CommentComponent } from './comment/comment.component';
 import { EventsComponent } from './events/events.component';
+import { ResetComponent } from './reset/reset.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { EventsComponent } from './events/events.component';
     ModalDialogComponent,
     CommentComponent,
     EventsComponent,
+    ResetComponent,
   ],
   imports: [
     BrowserModule,

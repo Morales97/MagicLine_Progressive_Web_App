@@ -14,4 +14,8 @@ export class AdminService {
     getTrams(url){
         return this.http.get(url)   
     }
+
+    eraseAllData(url){
+        return this.http.get(url)   
+    }
 }
