@@ -23,7 +23,7 @@ A Progressive Web Application (PWA) was developed with Angular + Node.js + Mongo
 
 The frontend of the application, made with Angular, can be found in this repository, while the backend is available in https://github.com/Morales97/rest-apiML
 
-The resulting PWA can be found (as of March 2020) in 
+The resulting PWA can be found (as of March 2020) in https://coordinacio.magiclinesjd.org but the full functionality will not be accessible unless provided with a username and password.
 
 ## Contact
 
