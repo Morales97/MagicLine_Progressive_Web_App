@@ -27,10 +27,10 @@ The resulting PWA can be found (as of March 2020) in https://coordinacio.magicli
 
 ## Contact
 
-Carla Campàs: ccg.campas@gmail.com
-Daniel Morales: danimoralesbrotons@gmail.com
-UPC: voluntariat.ccd@upc.edu
-SJD: coordinacio@magiclinesjd.org
+Carla Campàs: ccg.campas@gmail.com  
+Daniel Morales: danimoralesbrotons@gmail.com  
+UPC: voluntariat.ccd@upc.edu  
+SJD: coordinacio@magiclinesjd.org  
 
 # About Angular
 
