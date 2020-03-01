@@ -4,7 +4,7 @@ Welcome!
 
 This a non-profit project realised in collaboration between <b>Universitat Politècnica de Catalunya</b> (UPC) and the NGO <b>Sant Joan de Déu</b> (SJD). You can learn more about SJD soladarity projects at http://solidaritat.santjoandedeu.org/es
 
-<b>Carla Campàs</b> and <b>Daniel Morales</b> are two students at UPC who enrolled on a volunteering program and have been working with SJD for 4 months developing an application for the NGO.
+<b>Carla Campàs</b> and <b>Daniel Morales</b> are two students at UPC who have enrolled on a volunteering program and have been working with SJD for 4 months by developing this application for them.
 
 ## The Application
 
