@@ -16,6 +16,7 @@ The application is accessible both on mobile devices and on computers, having th
 
 ![Screenshot](src/assets/MLapp-map.png)
 ![Screenshot](src/assets/MLapp-home.png)
+![Screenshot](src/assets/MLapp-tram.png)
 
 ## Development
 
@@ -23,7 +24,7 @@ A Progressive Web Application (PWA) was developed with Angular + Node.js + Mongo
 
 The frontend of the application, made with Angular, can be found in this repository, while the backend is available in https://github.com/Morales97/rest-apiML
 
-The resulting PWA can be found (as of March 2020) in https://coordinacio.magiclinesjd.org but the full functionality will not be accessible unless provided with a username and password.
+The resulting PWA can be found (as of March 2020) in https://coordinacio.magiclinesjd.org but the full functionality will not be accessible unless provided with a username and password. On mobile devices, once you go into the website you have the option to install it so it behaves like a usual application.
 
 The deployment on AWS was done with the following guidelines: https://jasonwatmore.com/post/2019/12/02/angular-nodejs-on-aws-how-to-deploy-a-mean-stack-app-to-amazon-ec2
 
