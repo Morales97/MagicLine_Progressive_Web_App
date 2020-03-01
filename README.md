@@ -25,6 +25,8 @@ The frontend of the application, made with Angular, can be found in this reposit
 
 The resulting PWA can be found (as of March 2020) in https://coordinacio.magiclinesjd.org but the full functionality will not be accessible unless provided with a username and password.
 
+The deployment on AWS was done with the following guidelines: https://jasonwatmore.com/post/2019/12/02/angular-nodejs-on-aws-how-to-deploy-a-mean-stack-app-to-amazon-ec2
+
 ## Contact
 
 Carla Campàs: ccg.campas@gmail.com  
@@ -32,65 +34,4 @@ Daniel Morales: danimoralesbrotons@gmail.com
 UPC: voluntariat.ccd@upc.edu  
 SJD: coordinacio@magiclinesjd.org  
 
-# About Angular
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-# Com utilitzar git
-
-## clonar repositori:
-
-`git clone https://github.com/Morales97/MLapp`
-
-## per fer canvis
-
-1. Actualitzar master amb última versió: desde branca master `git pull`
-2. Crear una nova branca: `git branch <la teva branca>`
-3. Moure's a la nova branca: `git checkout <la teva branca>` 
-Per comprovar en qualsevol moment en quina branca estas, `git branch`
-4. ** fer canvis **
-5. Commitejar (aka guardar) els canvis: 
-  `git add *` 
-  `git commit -m <missatge>`
-** repetir 4. i 5. tants cops com calgui mentre es va treballant **
-6. Un cop es vol penjar els canvis, moure's a master: `git checkout master`
-7. Actualitzar master amb última versió: `git pull`
-8. Merge la teva branca al master: desde master `git merge <la teva branca>`
-9. Penjar els canvis al repositori remot: `git push origin master`
-
-# Com passar els audits
-
-Per comprovar que la PWA funciona bé, Developer tools del chrome -> Audits<br />
-Per passar tots els audits, cal que una versio de 'production' corri en un servidor:<br />
-`npm install -g http-server`<br />
-`ng build --prod`<br />
-`cd dist/MLapp`<br />
-`http-server`<br />
-En canvi, per fer testing normal simplement amb `ng serve` a la carpeta del projecte val
-
- 
 
