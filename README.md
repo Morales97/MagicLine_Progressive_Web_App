@@ -2,9 +2,9 @@
 
 Welcome!
 
-This a non-profit project realised in collaboration between Universitat Politècnica de Catalunya (UPC) and the NGO Sant Joan de Déu (SJD). You can learn more about SJD soladarity projects at http://solidaritat.santjoandedeu.org/es
+This a non-profit project realised in collaboration between <b>Universitat Politècnica de Catalunya</b> (UPC) and the NGO <b>Sant Joan de Déu</b> (SJD). You can learn more about SJD soladarity projects at http://solidaritat.santjoandedeu.org/es
 
-<b>Carla Campàs</b> and Daniel Morales are two students at UPC who enrolled on a volunteering program and have been working with SJD for 4 months developing an application for the NGO.
+<b>Carla Campàs</b> and <b>Daniel Morales</b> are two students at UPC who enrolled on a volunteering program and have been working with SJD for 4 months developing an application for the NGO.
 
 The aim of this application is to coordinate and reduce complexity in the organization of the Magic Line (http://magiclinesjd.org/es), an event held in Barcelona on March 1st 2020 that raised more than 300.000€ for solidarity projects. The event consists on a family hike through the streets of Barcelona with numerous cultural activities along the way. In total, more than 60km of route divided in 27 sections, everything made possible by hundreds of volunteers. 
 
