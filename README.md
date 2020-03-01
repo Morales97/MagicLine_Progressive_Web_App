@@ -12,7 +12,7 @@ The aim of this application is to coordinate and reduce complexity in the organi
 
 The complexity of coordinating such a number of people was very high. MLapp is a prototype for an application that helps reduce that complexity by providing the responsibles of each section with a platform to comunicate with the hike director. Users can indicate the state of the tram (Open/Sweeping/Closed), notify when they have received the expected material, picnic, etc... and open incident tickets for any unexpected problem. All the information is gathered in one place, thus providing a real time picture of the whole hiking sections to the director, as well as recording all movement and issues that can be used for review and improvement on next editions.
 
-![Screenshot](MLapp map.png)
+![Screenshot]('MLapp map.png')
 
 ## Development
 
