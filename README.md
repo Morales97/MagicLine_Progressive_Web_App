@@ -1,4 +1,4 @@
-# MLapp
+# MagicLine_Progressive_Web_App
 
 Welcome!
 
@@ -22,7 +22,7 @@ The application is accessible both on mobile devices and on computers, having th
 
 A Progressive Web Application (PWA) was developed with Angular + Node.js + MongoDB, and it was run on an AWS free tier EC2 Ubuntu server, making the project completely cost free.
 
-The frontend of the application, made with Angular, can be found in this repository, while the backend is available in https://github.com/Morales97/rest-apiML
+The frontend of the application, made with Angular, can be found in this repository, while the backend is available in https://github.com/Morales97/MagicLine_API
 
 The resulting PWA can be found (as of March 2020) in https://coordinacio.magiclinesjd.org but the full functionality will not be accessible unless provided with a username and password. On mobile devices, once you go into the website you have the option to install it so it behaves like a usual application.
 
